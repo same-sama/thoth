@@ -18,7 +18,7 @@
 
 ## 联系方式与生效日期
 
-- 支持邮箱：`413667519@qq.com`，与 App 的 `ThothLinks.supportEmail` 保持一致。
+- 支持邮箱：`Kennethskyhigh@163.com`，与 App 的 `ThothLinks.supportEmail` 保持一致。
 - 隐私政策生效日期：2026 年 10 月 17 日。
 
 三种语言在同一页里，按浏览器语言自动显示一种，右上角可以切换；没有 JavaScript 时三种都显示。

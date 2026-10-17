@@ -12,6 +12,7 @@
 <script src="lang.js"></script>
 </head>
 <body>
+<div class="progress" aria-hidden="true"><span></span></div>
 <main class="wide">
 <header class="site">
   <a class="home" href="./">THOTH</a>
@@ -26,16 +27,16 @@
 <div class="hero">
   <div class="ibis">
     <svg viewBox="0 0 210 210" role="img" aria-label="Thoth 的朱鹭">
-      <circle cx="105" cy="105" r="96" fill="none" stroke="var(--line)" stroke-width="0.8"></circle>
-      <circle cx="105" cy="105" r="82" fill="none" stroke="var(--line-soft)" stroke-width="0.8" stroke-dasharray="1.5 4.5"></circle>
-      <g fill="none" stroke="var(--ink)" stroke-linecap="round">
+      <circle class="ring" cx="105" cy="105" r="96" fill="none" stroke="var(--line)" stroke-width="0.8"></circle>
+      <circle class="ring-dots" cx="105" cy="105" r="82" fill="none" stroke="var(--line-soft)" stroke-width="0.8" stroke-dasharray="1.5 4.5"></circle>
+      <g class="strokes" fill="none" stroke="var(--ink)" stroke-linecap="round">
         <path d="M122 70 C132 62 144 64 148 74 C150 80 146 86 140 86 C134 86 130 82 126 80" stroke-width="1.8"></path>
         <path d="M126 80 C110 92 70 128 46 158" stroke-width="1.8"></path>
         <path d="M144 77 C150 86 152 100 146 118 C140 136 124 150 104 156 C92 160 80 160 70 156" stroke-width="1.8"></path>
         <path d="M104 156 L100 186 M118 148 L122 184" stroke-width="1.5"></path>
       </g>
-      <circle cx="139" cy="75" r="1.9" fill="var(--ink)"></circle>
-      <text x="105" y="200" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="6" fill="var(--faint)" letter-spacing="1.6">01010100 01001000</text>
+      <circle class="eye" cx="139" cy="75" r="1.9" fill="var(--ink)"></circle>
+      <text class="bits" x="105" y="200" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="6" fill="var(--faint)" letter-spacing="1.6">01010100 01001000</text>
     </svg>
   </div>
 
@@ -97,5 +98,6 @@
   <a href="mods-terms.html" data-zh="Mods 条款" data-ja="Mods 規約" data-en="Mods Terms">Mods 条款</a>
 </footer>
 </main>
+<script src="site.js"></script>
 </body>
 </html>

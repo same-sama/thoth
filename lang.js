@@ -19,6 +19,7 @@
     });
     root.setAttribute("lang", lang === "zh" ? "zh-Hans" : lang);
     try { localStorage.setItem("thoth.lang", lang); } catch (e) {}
+    document.dispatchEvent(new Event("thoth:lang"));
   }
   document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll("nav.lang button").forEach(function (b) {

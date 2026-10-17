@@ -11,7 +11,8 @@
 <script src="lang.js"></script>
 </head>
 <body>
-<main>
+<div class="progress" aria-hidden="true"><span></span></div>
+<main class="guide">
 <header class="site">
   <a class="home" href="./">THOTH</a>
   <nav class="links" aria-label="站点">
@@ -21,6 +22,9 @@
   </nav>
   <nav class="lang" aria-label="语言"><button data-lang="zh">中</button><button data-lang="ja">日</button><button data-lang="en">EN</button></nav>
 </header>
+<div class="guide-layout">
+<aside class="guide-nav" aria-label="目录"></aside>
+<div class="guide-body">
 
 <!-- ============================== 中文 ============================== -->
 <section lang="zh-Hans">
@@ -313,6 +317,8 @@
 <p>More questions? See <a href="support.html">Support</a> or email us.</p>
 </section>
 
+</div>
+</div>
 <footer>
   <span>Thoth</span>
   <a href="guide.html" data-zh="使用指南" data-ja="使い方" data-en="Guide">使用指南</a>
@@ -321,5 +327,6 @@
   <a href="mods-terms.html" data-zh="Mods 条款" data-ja="Mods 規約" data-en="Mods Terms">Mods 条款</a>
 </footer>
 </main>
+<script src="site.js"></script>
 </body>
 </html>

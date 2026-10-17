@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thoth · 隐私政策 / Privacy Policy</title>
+<link rel="stylesheet" href="style.css">
+<script src="lang.js"></script>
+</head>
+<body>
+<main>
+<header class="site">
+  <a class="home" href="./">THOTH</a>
+  <nav class="lang"><button data-lang="zh">中文</button><button data-lang="ja">日本語</button><button data-lang="en">English</button></nav>
+</header>
+
+<!-- ============================== 中文 ============================== -->
+<section lang="zh-Hans">
+<h1>隐私政策</h1>
+<p class="updated">生效日期：2026 年 10 月 17 日</p>
+
+<p>Thoth 是一个在你自己的 iPhone 上和 AI 朋友聊天的 App。我们（Thoth 的开发者）<strong>没有自己的服务器</strong>，不要求你注册账号，不放广告，不做统计分析，也不追踪你。这份政策说明 Thoth 会处理哪些信息、存在哪里、会发给谁。</p>
+
+<h2>1. 存在你手机上的内容</h2>
+<p>下面这些只存在你的设备上（以及你自己的 iCloud / 设备备份里，如果你开了备份）：</p>
+<ul>
+  <li>聊天记录、朋友的人设和记忆文件、日记、动态、你上传的图片和文件；</li>
+  <li>你的个人资料（名字、头像等）和 App 设置；</li>
+  <li>你填的 API Key —— 存在系统钥匙串里。</li>
+</ul>
+<p>记忆文件在「文件」App 的 Thoth 目录里，你可以随时查看、导出或删除。删除一位朋友会删掉 TA 的全部文件；删除 App 会删掉全部本地数据。</p>
+
+<h2>2. 发给你选择的 AI 服务的内容</h2>
+<p>朋友的回复由<strong>你自己接入的</strong>模型服务生成（例如 OpenAI、Anthropic、DeepSeek、阿里云百炼，或你自己部署的服务），用的是你自己的 API Key。为了生成回复，Thoth 会把以下内容<strong>直接从你的手机</strong>发给这个服务：</p>
+<ul>
+  <li>你发的消息，包括图片和转成文字的语音；</li>
+  <li>这位朋友的人设、相关记忆，以及 TA 对你的了解（你的资料、档案）；</li>
+  <li>后台整理记忆、准备主动消息时用到的相关内容。</li>
+</ul>
+<p>第一次把聊天发给某个服务之前，Thoth 会说明会发什么、发给谁，并请你同意。你可以随时在「设置 › 隐私与 API Key」里撤回；撤回后不会再向那个服务发送任何内容。这些服务怎么处理数据，由它们各自的隐私政策决定，我们看不到也拿不到这些内容。</p>
+
+<h2>3. 你开启后才会用到的其他服务</h2>
+<table>
+  <tr><th>功能</th><th>发送的内容</th><th>发给谁</th></tr>
+  <tr><td>在线语音（朗读）</td><td>要朗读的文字；克隆音色时的参考音频</td><td>你选的语音服务：Edge 在线语音（Microsoft）、VoxCPM2 体验服务（Hugging Face 上的 OpenBMB 演示）、MOSS、ElevenLabs、MiniMax、小米 MiMo、阿里云百炼，或你自己部署的服务</td></tr>
+  <tr><td>在线语音识别</td><td>你的语音录音</td><td>你为这位朋友选的识别服务；默认用 Apple 的系统语音识别</td></tr>
+  <tr><td>识图</td><td>你发的图片</td><td>你选的识图服务；「系统识别」只在设备上处理</td></tr>
+  <tr><td>生成图片</td><td>画图用的文字描述，以及角色照片的参考图</td><td>你选的生图服务</td></tr>
+  <tr><td>联网搜索</td><td>搜索关键词</td><td>Bing、Google 新闻、维基百科</td></tr>
+  <tr><td>MCP 工具</td><td>调用工具时的参数</td><td>你自己添加的 MCP 服务</td></tr>
+  <tr><td>天气</td><td>刷新天气时的大致位置</td><td>Apple WeatherKit</td></tr>
+</table>
+<p>健康、日历、Apple Music 的数据只在设备上读取和显示；只有你在设置里明确允许某位朋友读取时，相关内容才会作为聊天内容发给那位朋友用的模型服务。</p>
+
+<h2>4. Mods（社区）</h2>
+<p>Mods 用 Apple 的 iCloud（CloudKit 公共数据库）分享角色卡、外观和表情包。只有你投稿、设置作者资料、收藏或举报时才会用到：</p>
+<ul>
+  <li><strong>公开显示：</strong>你的作者名、作者头像、你投稿并通过审核的作品。</li>
+  <li><strong>审核人可见：</strong>你的投稿内容、你提交的举报。</li>
+  <li><strong>标识：</strong>CloudKit 为本 App 分配的一个匿名用户 ID（不是你的 Apple ID 或邮箱），用来把作品和作者对应起来。</li>
+  <li><strong>收藏：</strong>存在你自己的 iCloud 私有数据库里，只有你能看到。</li>
+</ul>
+<p>你可以在「Mods › 我的 Mods › 作者资料」里删除作者资料；已发布的作品和投稿可通过<a href="support.html">支持页</a>联系删除，我们会在 7 天内处理。投稿规则见 <a href="mods-terms.html">Mods 投稿条款</a>。</p>
+
+<h2>5. 我们不做的事</h2>
+<ul>
+  <li>不收集分析数据、不接广告、不追踪你、不出售任何数据；</li>
+  <li>不读取你的聊天内容 —— 它们不经过我们。</li>
+</ul>
+<p>如果你在系统设置里选择与开发者共享分析数据，Apple 会把崩溃报告等诊断信息提供给我们，这由 Apple 的隐私政策管理。</p>
+
+<h2>6. 儿童</h2>
+<p>Thoth 不面向 13 岁以下的儿童。</p>
+
+<h2>7. 政策变更</h2>
+<p>政策有变化时会更新本页和顶部的生效日期；重要变化会在 App 里提示。</p>
+
+<h2>8. 联系我们</h2>
+<p>邮箱：<a href="mailto:413667519@qq.com">413667519@qq.com</a> · <a href="support.html">支持页</a></p>
+</section>
+
+<!-- ============================== 日本語 ============================== -->
+<section lang="ja">
+<h1>プライバシーポリシー</h1>
+<p class="updated">発効日：2026 年 10 月 17 日</p>
+
+<p>Thoth は、あなた自身の iPhone で AI の友だちと話すアプリです。私たち（Thoth の開発者）は<strong>自前のサーバーを持たず</strong>、アカウント登録を求めず、広告・分析・トラッキングも行いません。このポリシーでは、Thoth が扱う情報、その保存場所、送信先を説明します。</p>
+
+<h2>1. 端末に保存される内容</h2>
+<ul>
+  <li>会話履歴、友だちの人設と記憶ファイル、日記、投稿、あなたが送った画像やファイル</li>
+  <li>あなたのプロフィール（名前・アイコンなど）とアプリの設定</li>
+  <li>入力した API Key（システムのキーチェーンに保存）</li>
+</ul>
+<p>これらは端末（およびバックアップを有効にしている場合はあなたの iCloud／端末バックアップ）にのみ保存されます。記憶ファイルは「ファイル」アプリの Thoth フォルダで確認・書き出し・削除できます。友だちを削除するとその友だちのファイルはすべて削除され、アプリを削除するとすべてのローカルデータが削除されます。</p>
+
+<h2>2. あなたが選んだ AI サービスへ送られる内容</h2>
+<p>友だちの返信は、<strong>あなたが接続した</strong>モデルサービス（OpenAI、Anthropic、DeepSeek、Alibaba Cloud Model Studio、または自分で立てたサービスなど）が、あなた自身の API Key で生成します。返信を作るため、Thoth は次の内容を<strong>端末から直接</strong>そのサービスへ送ります。</p>
+<ul>
+  <li>あなたのメッセージ（画像、文字起こしした音声を含む）</li>
+  <li>その友だちの人設、関連する記憶、あなたについて知っていること（プロフィールなど）</li>
+  <li>バックグラウンドで記憶を整理したり、自発メッセージを用意したりする際の関連内容</li>
+</ul>
+<p>初めてあるサービスに会話を送る前に、何をどこへ送るかを説明し、同意をお願いします。「設定 › プライバシーと API Key」でいつでも取り消せ、取り消した後はそのサービスに何も送られません。各サービスでのデータの扱いはそれぞれのプライバシーポリシーに従い、私たちがその内容を見ることはできません。</p>
+
+<h2>3. 有効にしたときだけ使われるその他のサービス</h2>
+<table>
+  <tr><th>機能</th><th>送信される内容</th><th>送信先</th></tr>
+  <tr><td>オンライン音声（読み上げ）</td><td>読み上げるテキスト、声のクローン用の参照音声</td><td>選んだ音声サービス：Edge オンライン音声（Microsoft）、VoxCPM2 体験サービス（Hugging Face 上の OpenBMB デモ）、MOSS、ElevenLabs、MiniMax、Xiaomi MiMo、Alibaba Cloud Model Studio、または自分で立てたサービス</td></tr>
+  <tr><td>オンライン音声認識</td><td>音声の録音</td><td>その友だちに選んだ認識サービス（既定は Apple のシステム音声認識）</td></tr>
+  <tr><td>画像認識</td><td>送った画像</td><td>選んだ画像認識サービス（「システム認識」は端末内で処理）</td></tr>
+  <tr><td>画像生成</td><td>画像の説明文、キャラクター写真の参照画像</td><td>選んだ画像生成サービス</td></tr>
+  <tr><td>ウェブ検索</td><td>検索キーワード</td><td>Bing、Google ニュース、Wikipedia</td></tr>
+  <tr><td>MCP ツール</td><td>ツール呼び出しの引数</td><td>自分で追加した MCP サービス</td></tr>
+  <tr><td>天気</td><td>天気を更新するときのおおよその位置</td><td>Apple WeatherKit</td></tr>
+</table>
+<p>ヘルスケア、カレンダー、Apple Music のデータは端末内でのみ読み取り・表示されます。設定で特定の友だちに読み取りを許可した場合に限り、関連する内容が会話としてその友だちのモデルサービスへ送られます。</p>
+
+<h2>4. Mods（コミュニティ）</h2>
+<p>Mods は Apple の iCloud（CloudKit 公開データベース）でキャラクターカード、外観、スタンプを共有します。投稿、作者プロフィールの設定、保存、報告をしたときだけ使われます。</p>
+<ul>
+  <li><strong>公開：</strong>作者名、作者アイコン、審査を通過したあなたの作品</li>
+  <li><strong>審査担当者のみ：</strong>投稿内容、あなたが送った報告</li>
+  <li><strong>識別子：</strong>CloudKit がこのアプリ用に割り当てる匿名のユーザー ID（Apple ID やメールアドレスではありません）</li>
+  <li><strong>保存したもの：</strong>あなた自身の iCloud プライベートデータベースに保存され、あなただけが見られます</li>
+</ul>
+<p>作者プロフィールは「Mods › マイ Mods › 作者プロフィール」で削除できます。公開中の作品や投稿の削除は<a href="support.html">サポートページ</a>からご依頼ください（7 日以内に対応）。投稿ルールは <a href="mods-terms.html">Mods 投稿規約</a>をご覧ください。</p>
+
+<h2>5. 私たちが行わないこと</h2>
+<ul>
+  <li>分析データの収集、広告、トラッキング、データの販売は行いません</li>
+  <li>あなたの会話内容を読むことはありません（私たちを経由しません）</li>
+</ul>
+<p>システム設定で「デベロッパと共有」を有効にしている場合、Apple からクラッシュレポートなどの診断情報が提供されます。これは Apple のプライバシーポリシーに従います。</p>
+
+<h2>6. 子ども</h2>
+<p>Thoth は 13 歳未満の子どもを対象としていません。</p>
+
+<h2>7. 変更</h2>
+<p>ポリシーを変更した場合は本ページと発効日を更新し、重要な変更はアプリ内でお知らせします。</p>
+
+<h2>8. お問い合わせ</h2>
+<p>メール：<a href="mailto:413667519@qq.com">413667519@qq.com</a> · <a href="support.html">サポート</a></p>
+</section>
+
+<!-- ============================== English ============================== -->
+<section lang="en">
+<h1>Privacy Policy</h1>
+<p class="updated">Effective October 17, 2026</p>
+
+<p>Thoth is an app for talking with AI friends on your own iPhone. We (the developer of Thoth) <strong>run no servers of our own</strong>, require no account, and have no ads, analytics or tracking. This policy explains what information Thoth handles, where it is stored, and where it is sent.</p>
+
+<h2>1. What stays on your device</h2>
+<ul>
+  <li>Chat history, your friends' personas and memory files, diaries, posts, and images and files you add</li>
+  <li>Your profile (name, photo, etc.) and app settings</li>
+  <li>API keys you enter, stored in the system Keychain</li>
+</ul>
+<p>These are stored only on your device (and in your own iCloud or device backups, if you have backups turned on). Memory files are in the Thoth folder of the Files app, where you can view, export or delete them. Deleting a friend deletes all of their files; deleting the app deletes all local data.</p>
+
+<h2>2. What is sent to the AI service you choose</h2>
+<p>Your friends' replies are written by a model service <strong>you connect</strong> (for example OpenAI, Anthropic, DeepSeek, Alibaba Cloud Model Studio, or a service you host yourself), using your own API key. To write a reply, Thoth sends the following <strong>directly from your phone</strong> to that service:</p>
+<ul>
+  <li>Your messages, including photos and voice turned into text</li>
+  <li>That friend's persona, relevant memories, and what they know about you (your profile)</li>
+  <li>Related content used when memories are tidied up or a message is prepared in the background</li>
+</ul>
+<p>Before chats are first sent to a service, Thoth explains what will be sent and where, and asks for your agreement. You can withdraw at any time in Settings › Privacy &amp; API Keys; after that, nothing is sent to that service. Each service handles data under its own privacy policy. We cannot see or access this content.</p>
+
+<h2>3. Other services, used only when you turn them on</h2>
+<table>
+  <tr><th>Feature</th><th>What is sent</th><th>Sent to</th></tr>
+  <tr><td>Online voices (read aloud)</td><td>Text to read; reference audio when cloning a voice</td><td>The voice service you choose: Edge online voices (Microsoft), the VoxCPM2 trial (an OpenBMB demo on Hugging Face), MOSS, ElevenLabs, MiniMax, Xiaomi MiMo, Alibaba Cloud Model Studio, or a service you host</td></tr>
+  <tr><td>Online speech recognition</td><td>Your voice recordings</td><td>The recognition service you choose for that friend; Apple's speech recognition by default</td></tr>
+  <tr><td>Image recognition</td><td>Images you send</td><td>The service you choose; "System recognition" stays on device</td></tr>
+  <tr><td>Image generation</td><td>The image description, and reference images for character photos</td><td>The image service you choose</td></tr>
+  <tr><td>Web search</td><td>Search terms</td><td>Bing, Google News, Wikipedia</td></tr>
+  <tr><td>MCP tools</td><td>Tool call arguments</td><td>MCP services you add yourself</td></tr>
+  <tr><td>Weather</td><td>Approximate location when weather refreshes</td><td>Apple WeatherKit</td></tr>
+</table>
+<p>Health, Calendar and Apple Music data are read and shown on device only. Only if you explicitly allow a friend to read them in Settings is the relevant content sent, as part of the chat, to that friend's model service.</p>
+
+<h2>4. Mods (community)</h2>
+<p>Mods shares character cards, looks and sticker sets through Apple's iCloud (the CloudKit public database). It is used only when you submit, set up an author profile, save or report something:</p>
+<ul>
+  <li><strong>Public:</strong> your author name and photo, and your submissions that pass review</li>
+  <li><strong>Visible to reviewers:</strong> your submissions and the reports you send</li>
+  <li><strong>Identifier:</strong> an anonymous user ID CloudKit assigns for this app (not your Apple ID or email), used to link works to their author</li>
+  <li><strong>Saved items:</strong> kept in your own iCloud private database, visible only to you</li>
+</ul>
+<p>You can delete your author profile in Mods › My Mods › Author Profile. To remove published Mods or submissions, contact us through the <a href="support.html">support page</a>; we handle requests within 7 days. See the <a href="mods-terms.html">Mods submission terms</a> for the rules.</p>
+
+<h2>5. What we don't do</h2>
+<ul>
+  <li>No analytics, ads, tracking or sale of any data</li>
+  <li>We never read your chats; they do not pass through us</li>
+</ul>
+<p>If you choose to share analytics with app developers in system settings, Apple provides us with diagnostics such as crash reports, under Apple's privacy policy.</p>
+
+<h2>6. Children</h2>
+<p>Thoth is not directed to children under 13.</p>
+
+<h2>7. Changes</h2>
+<p>If this policy changes, we update this page and the effective date, and point out important changes in the app.</p>
+
+<h2>8. Contact</h2>
+<p>Email: <a href="mailto:413667519@qq.com">413667519@qq.com</a> · <a href="support.html">Support</a></p>
+</section>
+
+<footer>Thoth · <a href="privacy.html">隐私 / Privacy</a> · <a href="support.html">支持 / Support</a></footer>
+</main>
+</body>
+</html>

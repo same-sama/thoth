@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thoth · 自部署服务接入 / Self-Hosted Services</title>
+<link rel="stylesheet" href="style.css">
+<script src="lang.js"></script>
+</head>
+<body>
+<main>
+<header class="site">
+  <a class="home" href="./">THOTH</a>
+  <nav class="lang"><button data-lang="zh">中文</button><button data-lang="ja">日本語</button><button data-lang="en">English</button></nav>
+</header>
+
+<section lang="zh-Hans">
+<h1>接入自己部署的服务</h1>
+<p>Thoth 认 <strong>OpenAI 的接口格式</strong>。你自己部署的语音、识图、生图服务，只要兼容下面对应的接口，就能接进来。每个入口都有「测试一下」，接不通时会告诉你卡在地址、Key 还是接口格式。</p>
+
+<h2>地址</h2>
+<ul>
+  <li>局域网里的服务可以用 <code>http://</code>，比如 <code>http://192.168.1.10:8000/v1</code>。第一次连时 iOS 会问是否允许 Thoth 访问本地网络，选允许。</li>
+  <li>放在公网上的服务必须用 <code>https://</code>，证书要是正规签发的（自签名不行）。没有 https 的话，可以用 Caddy 或 Cloudflare Tunnel 免费加一层。</li>
+</ul>
+
+<h2>语音（TTS）</h2>
+<p>入口：设置 › 模型与服务 › 语音服务 › 添加 TTS 服务</p>
+<pre><code>POST {地址}/v1/audio/speech
+{"model": "...", "input": "要读的文字", "voice": "...", "response_format": "wav", "speed": 1}</code></pre>
+<ul>
+  <li><strong>必须返回 WAV</strong>（<code>Content-Type: audio/wav</code>），只能返回 mp3 的服务接不了。</li>
+  <li>鉴权三选一：<code>Authorization: Bearer &lt;Key&gt;</code>、<code>X-API-Key: &lt;Key&gt;</code>、不鉴权。</li>
+  <li>地址可以填服务根地址、到 <code>/v1</code> 为止，或者完整的 <code>/v1/audio/speech</code>。</li>
+  <li>模型和音色填服务认的 ID，多个用逗号隔开，第一个是默认值。</li>
+</ul>
+
+<h2>识图</h2>
+<p>入口：设置 › 模型与服务 › 图像识别 › 子智能体接入</p>
+<ol>
+  <li>先在「设置 › 模型与服务 › 模型服务 › 添加 › 自定义兼容服务」里接入你的服务，Base URL 填到 <code>/v1</code>（比如 Ollama：<code>http://电脑IP:11434/v1</code>）。不需要 Key 的服务，Key 随便填一个（比如 <code>none</code>）。</li>
+  <li>回到子智能体接入，选这个服务和 Key，模型填一个支持图片输入的模型（比如 <code>qwen2.5vl</code>、<code>llava</code>）。</li>
+  <li>点「测试一下」：会发一张纯红色小图，模型说得出颜色就算通了。</li>
+</ol>
+<p>接口：<code>POST {Base URL}/chat/completions</code>，图片按 OpenAI 的 <code>image_url</code>（base64 data URL）发送。</p>
+
+<h2>生图</h2>
+<p>入口：朋友设置 › 生成图片 › 独立能力模型（同样先在模型服务里接入）</p>
+<pre><code>POST {Base URL}/images/generations
+{"model": "...", "prompt": "...", "n": 1, "size": "1024x1024"}
+→ {"data": [{"b64_json": "..."}]} 或 {"data": [{"url": "..."}]}</code></pre>
+<p>size 只会是 1024x1024、1536x1024、1024x1536 之一。「测试一下」会真的画一张小图，按服务计费。</p>
+
+<h2>常见报错</h2>
+<table>
+  <tr><th>测试结果</th><th>怎么办</th></tr>
+  <tr><td>卡在地址：连不上</td><td>确认服务在跑、端口对；手机和电脑在同一个 Wi-Fi；电脑防火墙放行端口；iOS 设置里允许 Thoth 访问本地网络</td></tr>
+  <tr><td>卡在地址：http 只能连局域网</td><td>公网服务换成 https</td></tr>
+  <tr><td>卡在地址：证书不被信任</td><td>换正规证书，或在局域网里用 http</td></tr>
+  <tr><td>卡在 Key（401/403）</td><td>核对 Key；Bearer 和 X-API-Key 换一个试</td></tr>
+  <tr><td>卡在接口格式（404/405）</td><td>地址填到 /v1 为止</td></tr>
+  <tr><td>卡在接口格式（400/422）</td><td>多半是模型名或音色名不对，看测试结果里服务回的原话</td></tr>
+  <tr><td>返回的不是 WAV</td><td>让服务支持 <code>response_format: "wav"</code></td></tr>
+  <tr><td>服务本身出错（5xx）</td><td>地址和 Key 都通了，看服务端日志</td></tr>
+</table>
+</section>
+
+<section lang="ja">
+<h1>自分で立てたサービスをつなぐ</h1>
+<p>Thoth は <strong>OpenAI の API 形式</strong>に対応しています。自分で立てた音声・画像認識・画像生成サービスも、下の API と互換なら接続できます。各画面の「テストする」で、つながらないときにアドレス・キー・API 形式のどこで止まっているかが分かります。</p>
+
+<h2>アドレス</h2>
+<ul>
+  <li>LAN 内のサービスは <code>http://</code> でも使えます（例：<code>http://192.168.1.10:8000/v1</code>）。初回に iOS がローカルネットワークへのアクセスを確認するので、許可してください。</li>
+  <li>インターネット上のサービスは <code>https://</code> が必要で、正式に発行された証明書が必要です（自己署名は不可）。Caddy や Cloudflare Tunnel で無料で https にできます。</li>
+</ul>
+
+<h2>音声（TTS）</h2>
+<p>設定 › モデルとサービス › 音声サービス › TTS サービスを追加</p>
+<pre><code>POST {アドレス}/v1/audio/speech
+{"model": "...", "input": "読み上げるテキスト", "voice": "...", "response_format": "wav", "speed": 1}</code></pre>
+<ul>
+  <li><strong>WAV を返す必要があります</strong>（<code>Content-Type: audio/wav</code>）。mp3 しか返せないサービスは使えません。</li>
+  <li>認証：<code>Authorization: Bearer &lt;Key&gt;</code>、<code>X-API-Key: &lt;Key&gt;</code>、認証なし のいずれか。</li>
+  <li>アドレスはルート、<code>/v1</code> まで、または完全な <code>/v1/audio/speech</code> のどれでも構いません。</li>
+  <li>モデルと音声はサービスの ID をカンマ区切りで。先頭が既定値です。</li>
+</ul>
+
+<h2>画像認識</h2>
+<p>設定 › モデルとサービス › 画像認識 › サブエージェント</p>
+<ol>
+  <li>まず「設定 › モデルとサービス › モデルサービス › 追加 › カスタム互換サービス」でサービスを追加します。Base URL は <code>/v1</code> まで（Ollama なら <code>http://PCのIP:11434/v1</code>）。キー不要のサービスでも、キー欄には何か（例：<code>none</code>）を入れてください。</li>
+  <li>サブエージェントでそのサービスとキーを選び、画像入力に対応したモデル（例：<code>qwen2.5vl</code>、<code>llava</code>）を入力します。</li>
+  <li>「テストする」で真っ赤な小さい画像を送り、色を答えられれば OK です。</li>
+</ol>
+<p>API：<code>POST {Base URL}/chat/completions</code>。画像は OpenAI の <code>image_url</code>（base64 data URL）形式で送ります。</p>
+
+<h2>画像生成</h2>
+<p>友だちの設定 › 画像生成 › 専用機能モデル（先にモデルサービスへ追加）</p>
+<pre><code>POST {Base URL}/images/generations
+{"model": "...", "prompt": "...", "n": 1, "size": "1024x1024"}
+→ {"data": [{"b64_json": "..."}]} または {"data": [{"url": "..."}]}</code></pre>
+<p>size は 1024x1024、1536x1024、1024x1536 のいずれかです。「テストする」は実際に小さな画像を 1 枚生成し、料金がかかります。</p>
+
+<h2>よくあるエラー</h2>
+<table>
+  <tr><th>テスト結果</th><th>対処</th></tr>
+  <tr><td>アドレス：接続できない</td><td>サービスとポートを確認。スマホと PC を同じ Wi-Fi に。PC のファイアウォールでポートを許可。iOS 設定でローカルネットワークを許可</td></tr>
+  <tr><td>アドレス：http は LAN のみ</td><td>インターネット上のサービスは https に</td></tr>
+  <tr><td>アドレス：証明書が信頼されない</td><td>正式な証明書にするか、LAN なら http を使用</td></tr>
+  <tr><td>キー（401/403）</td><td>キーを確認。Bearer と X-API-Key を切り替えて試す</td></tr>
+  <tr><td>API 形式（404/405）</td><td>アドレスを /v1 までにする</td></tr>
+  <tr><td>API 形式（400/422）</td><td>モデル名や音声名の誤りが多い。テスト結果のサービスの返答を確認</td></tr>
+  <tr><td>WAV ではない</td><td><code>response_format: "wav"</code> に対応させる</td></tr>
+  <tr><td>サービス側のエラー（5xx）</td><td>アドレスとキーは通っている。サーバーのログを確認</td></tr>
+</table>
+</section>
+
+<section lang="en">
+<h1>Connecting a Self-Hosted Service</h1>
+<p>Thoth speaks the <strong>OpenAI API format</strong>. A voice, image-recognition or image-generation service you host yourself works if it's compatible with the endpoints below. Each settings page has a <em>Test It</em> button that tells you whether a failure is at the address, the key or the API format.</p>
+
+<h2>Addresses</h2>
+<ul>
+  <li>Services on your local network can use <code>http://</code>, e.g. <code>http://192.168.1.10:8000/v1</code>. The first time, iOS asks whether Thoth may access your local network; allow it.</li>
+  <li>Services on the internet need <code>https://</code> with a properly issued certificate (self-signed won't work). Caddy or Cloudflare Tunnel can add https for free.</li>
+</ul>
+
+<h2>Voice (TTS)</h2>
+<p>Settings › Models &amp; Services › Voice Services › Add TTS Service</p>
+<pre><code>POST {address}/v1/audio/speech
+{"model": "...", "input": "text to read", "voice": "...", "response_format": "wav", "speed": 1}</code></pre>
+<ul>
+  <li><strong>Must return WAV</strong> (<code>Content-Type: audio/wav</code>). Services that only return mp3 won't work.</li>
+  <li>Authentication: <code>Authorization: Bearer &lt;key&gt;</code>, <code>X-API-Key: &lt;key&gt;</code>, or none.</li>
+  <li>The address may be the service root, end at <code>/v1</code>, or be the full <code>/v1/audio/speech</code>.</li>
+  <li>Enter model and voice IDs the service recognizes, comma-separated; the first is the default.</li>
+</ul>
+
+<h2>Image recognition</h2>
+<p>Settings › Models &amp; Services › Image Recognition › Sub-agent</p>
+<ol>
+  <li>First add your service under Settings › Models &amp; Services › Model Services › Add › Custom compatible service, with the Base URL ending at <code>/v1</code> (for Ollama: <code>http://your-computer-ip:11434/v1</code>). If it needs no key, enter anything as the key (e.g. <code>none</code>).</li>
+  <li>In Sub-agent, choose that service and key, and enter a model that accepts images (e.g. <code>qwen2.5vl</code>, <code>llava</code>).</li>
+  <li>Tap Test It: it sends a small solid-red image; if the model names the color, it works.</li>
+</ol>
+<p>Endpoint: <code>POST {Base URL}/chat/completions</code>, with images sent as OpenAI <code>image_url</code> base64 data URLs.</p>
+
+<h2>Image generation</h2>
+<p>Friend Settings › Image Generation › Dedicated Capability Model (add the service under Model Services first)</p>
+<pre><code>POST {Base URL}/images/generations
+{"model": "...", "prompt": "...", "n": 1, "size": "1024x1024"}
+→ {"data": [{"b64_json": "..."}]} or {"data": [{"url": "..."}]}</code></pre>
+<p>size is always one of 1024x1024, 1536x1024 or 1024x1536. Test It really generates one small image and is billed by the service.</p>
+
+<h2>Common errors</h2>
+<table>
+  <tr><th>Test result</th><th>What to do</th></tr>
+  <tr><td>Address: can't connect</td><td>Check the service is running and the port is right; same Wi-Fi as the phone; allow the port in the computer's firewall; allow Local Network for Thoth in iOS Settings</td></tr>
+  <tr><td>Address: http only works locally</td><td>Use https for services on the internet</td></tr>
+  <tr><td>Address: certificate not trusted</td><td>Use a proper certificate, or plain http on a LAN</td></tr>
+  <tr><td>Key (401/403)</td><td>Check the key; try switching between Bearer and X-API-Key</td></tr>
+  <tr><td>Format (404/405)</td><td>End the address at /v1</td></tr>
+  <tr><td>Format (400/422)</td><td>Usually a wrong model or voice name; read the service's reply in the test result</td></tr>
+  <tr><td>Not WAV</td><td>Make the service support <code>response_format: "wav"</code></td></tr>
+  <tr><td>Service error (5xx)</td><td>Address and key got through; check the server logs</td></tr>
+</table>
+</section>
+
+<footer>Thoth · <a href="privacy.html">隐私 / Privacy</a> · <a href="support.html">支持 / Support</a></footer>
+</main>
+</body>
+</html>

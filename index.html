@@ -4,53 +4,98 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Thoth</title>
+<meta name="description" content="住在你手机上的 AI 朋友。记忆属于 TA，文件属于你。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Noto+Serif+SC:wght@400;600&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <script src="lang.js"></script>
 </head>
 <body>
-<main>
+<main class="wide">
 <header class="site">
   <a class="home" href="./">THOTH</a>
-  <nav class="lang"><button data-lang="zh">中文</button><button data-lang="ja">日本語</button><button data-lang="en">English</button></nav>
+  <nav class="links" aria-label="站点">
+    <a href="guide.html" data-zh="使用指南" data-ja="使い方" data-en="Guide">使用指南</a>
+    <a href="support.html" data-zh="支持" data-ja="サポート" data-en="Support">支持</a>
+    <a href="privacy.html" data-zh="隐私" data-ja="プライバシー" data-en="Privacy">隐私</a>
+  </nav>
+  <nav class="lang" aria-label="语言"><button data-lang="zh">中</button><button data-lang="ja">日</button><button data-lang="en">EN</button></nav>
 </header>
 
+<div class="hero">
+  <div class="ibis">
+    <svg viewBox="0 0 210 210" role="img" aria-label="Thoth 的朱鹭">
+      <circle cx="105" cy="105" r="96" fill="none" stroke="var(--line)" stroke-width="0.8"></circle>
+      <circle cx="105" cy="105" r="82" fill="none" stroke="var(--line-soft)" stroke-width="0.8" stroke-dasharray="1.5 4.5"></circle>
+      <g fill="none" stroke="var(--ink)" stroke-linecap="round">
+        <path d="M122 70 C132 62 144 64 148 74 C150 80 146 86 140 86 C134 86 130 82 126 80" stroke-width="1.8"></path>
+        <path d="M126 80 C110 92 70 128 46 158" stroke-width="1.8"></path>
+        <path d="M144 77 C150 86 152 100 146 118 C140 136 124 150 104 156 C92 160 80 160 70 156" stroke-width="1.8"></path>
+        <path d="M104 156 L100 186 M118 148 L122 184" stroke-width="1.5"></path>
+      </g>
+      <circle cx="139" cy="75" r="1.9" fill="var(--ink)"></circle>
+      <text x="105" y="200" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="6" fill="var(--faint)" letter-spacing="1.6">01010100 01001000</text>
+    </svg>
+  </div>
+
+  <div class="text">
+    <section lang="zh-Hans">
+      <h1>住在你手机上的<br>AI 朋友</h1>
+      <p class="lead">记忆属于 TA，文件属于你。</p>
+      <p>聊天、记忆和日记存在你的 iPhone 上，用你自己接入的模型服务回复你。没有账号，没有广告，不追踪。</p>
+    </section>
+    <section lang="ja">
+      <h1>あなたのスマホに住む<br>AI の友だち</h1>
+      <p class="lead">記憶は TA に、ファイルはあなたに。</p>
+      <p>会話・記憶・日記は iPhone に保存され、あなたが接続したモデルサービスが返信します。アカウントも広告もトラッキングもありません。</p>
+    </section>
+    <section lang="en">
+      <h1>AI friends who live<br>on your phone</h1>
+      <p class="lead">Their memory. Your files.</p>
+      <p>Chats, memories and diaries stay on your iPhone, and replies come from the model service you connect. No account, no ads, no tracking.</p>
+    </section>
+  </div>
+</div>
+
 <section lang="zh-Hans">
-<h1>Thoth</h1>
-<p>住在你手机上的 AI 朋友。记忆属于 TA，文件属于你。</p>
-<p class="muted">聊天和记忆存在你的 iPhone 上，用你自己接入的模型服务回复你。没有账号，没有广告。</p>
-<div class="cards">
-  <a href="support.html">支持<span>常见问题、联系我们</span></a>
-  <a href="privacy.html">隐私政策<span>什么存在手机上，什么会发给谁</span></a>
-  <a href="self-hosting.html">接入自己部署的服务<span>语音、识图、生图</span></a>
-  <a href="mods-terms.html">Mods 投稿条款<span>分享角色卡、外观、表情包的规则</span></a>
-</div>
+  <div class="facts"><div><b>存在本机</b>聊天与记忆</div><div><b>你的 Key</b>你选的模型</div><div><b>无账号</b>无广告</div></div>
+  <nav class="rows" aria-label="页面">
+    <a href="guide.html">使用指南<span>从第一个朋友到 Mods →</span></a>
+    <a href="support.html">支持<span>常见问题 · 联系 →</span></a>
+    <a href="privacy.html">隐私政策<span>什么会发给谁 →</span></a>
+    <a href="self-hosting.html">自部署服务<span>语音 · 识图 · 生图 →</span></a>
+    <a href="mods-terms.html">Mods 投稿条款<span>分享的规则 →</span></a>
+  </nav>
 </section>
-
 <section lang="ja">
-<h1>Thoth</h1>
-<p>あなたのスマホに住む AI の友だち。記憶は TA に、ファイルはあなたに。</p>
-<p class="muted">会話と記憶は iPhone に保存され、あなたが接続したモデルサービスが返信します。アカウントも広告もありません。</p>
-<div class="cards">
-  <a href="support.html">サポート<span>よくある質問、お問い合わせ</span></a>
-  <a href="privacy.html">プライバシーポリシー<span>端末に残るもの、送られるもの</span></a>
-  <a href="self-hosting.html">自分で立てたサービスをつなぐ<span>音声、画像認識、画像生成</span></a>
-  <a href="mods-terms.html">Mods 投稿規約<span>キャラクターカード・外観・スタンプの共有ルール</span></a>
-</div>
+  <div class="facts"><div><b>端末に保存</b>会話と記憶</div><div><b>自分のキー</b>選んだモデル</div><div><b>登録不要</b>広告なし</div></div>
+  <nav class="rows" aria-label="ページ">
+    <a href="guide.html">使い方<span>最初の友だちから Mods まで →</span></a>
+    <a href="support.html">サポート<span>よくある質問 · 連絡 →</span></a>
+    <a href="privacy.html">プライバシーポリシー<span>何がどこへ送られるか →</span></a>
+    <a href="self-hosting.html">自分で立てたサービス<span>音声 · 画像認識 · 画像生成 →</span></a>
+    <a href="mods-terms.html">Mods 投稿規約<span>共有のルール →</span></a>
+  </nav>
 </section>
-
 <section lang="en">
-<h1>Thoth</h1>
-<p>AI friends who live on your phone. Their memory. Your files.</p>
-<p class="muted">Chats and memories stay on your iPhone, and replies come from the model service you connect. No account, no ads.</p>
-<div class="cards">
-  <a href="support.html">Support<span>FAQ and contact</span></a>
-  <a href="privacy.html">Privacy Policy<span>What stays on your phone, and what goes where</span></a>
-  <a href="self-hosting.html">Connect a self-hosted service<span>Voice, image recognition, image generation</span></a>
-  <a href="mods-terms.html">Mods Submission Terms<span>Rules for sharing cards, looks and stickers</span></a>
-</div>
+  <div class="facts"><div><b>On device</b>chats &amp; memory</div><div><b>Your key</b>your model</div><div><b>No account</b>no ads</div></div>
+  <nav class="rows" aria-label="Pages">
+    <a href="guide.html">Guide<span>From your first friend to Mods →</span></a>
+    <a href="support.html">Support<span>FAQ · contact →</span></a>
+    <a href="privacy.html">Privacy Policy<span>What goes where →</span></a>
+    <a href="self-hosting.html">Self-hosted services<span>Voice · vision · images →</span></a>
+    <a href="mods-terms.html">Mods Terms<span>Sharing rules →</span></a>
+  </nav>
 </section>
 
-<footer>Thoth · <a href="privacy.html">隐私 / Privacy</a> · <a href="support.html">支持 / Support</a></footer>
+<footer>
+  <span>Thoth</span>
+  <a href="guide.html" data-zh="使用指南" data-ja="使い方" data-en="Guide">使用指南</a>
+  <a href="privacy.html" data-zh="隐私政策" data-ja="プライバシー" data-en="Privacy">隐私政策</a>
+  <a href="support.html" data-zh="支持" data-ja="サポート" data-en="Support">支持</a>
+  <a href="mods-terms.html" data-zh="Mods 条款" data-ja="Mods 規約" data-en="Mods Terms">Mods 条款</a>
+</footer>
 </main>
 </body>
 </html>

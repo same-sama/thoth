@@ -4,6 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Thoth · 自部署服务接入 / Self-Hosted Services</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Noto+Serif+SC:wght@400;600&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <script src="lang.js"></script>
 </head>
@@ -11,7 +14,12 @@
 <main>
 <header class="site">
   <a class="home" href="./">THOTH</a>
-  <nav class="lang"><button data-lang="zh">中文</button><button data-lang="ja">日本語</button><button data-lang="en">English</button></nav>
+  <nav class="links" aria-label="站点">
+    <a href="guide.html" data-zh="使用指南" data-ja="使い方" data-en="Guide">使用指南</a>
+    <a href="support.html" data-zh="支持" data-ja="サポート" data-en="Support">支持</a>
+    <a href="privacy.html" data-zh="隐私" data-ja="プライバシー" data-en="Privacy">隐私</a>
+  </nav>
+  <nav class="lang" aria-label="语言"><button data-lang="zh">中</button><button data-lang="ja">日</button><button data-lang="en">EN</button></nav>
 </header>
 
 <section lang="zh-Hans">
@@ -52,7 +60,7 @@
 <p>size 只会是 1024x1024、1536x1024、1024x1536 之一。「测试一下」会真的画一张小图，按服务计费。</p>
 
 <h2>常见报错</h2>
-<table>
+<div class="table-wrap"><table>
   <tr><th>测试结果</th><th>怎么办</th></tr>
   <tr><td>卡在地址：连不上</td><td>确认服务在跑、端口对；手机和电脑在同一个 Wi-Fi；电脑防火墙放行端口；iOS 设置里允许 Thoth 访问本地网络</td></tr>
   <tr><td>卡在地址：http 只能连局域网</td><td>公网服务换成 https</td></tr>
@@ -62,7 +70,7 @@
   <tr><td>卡在接口格式（400/422）</td><td>多半是模型名或音色名不对，看测试结果里服务回的原话</td></tr>
   <tr><td>返回的不是 WAV</td><td>让服务支持 <code>response_format: "wav"</code></td></tr>
   <tr><td>服务本身出错（5xx）</td><td>地址和 Key 都通了，看服务端日志</td></tr>
-</table>
+</table></div>
 </section>
 
 <section lang="ja">
@@ -103,7 +111,7 @@
 <p>size は 1024x1024、1536x1024、1024x1536 のいずれかです。「テストする」は実際に小さな画像を 1 枚生成し、料金がかかります。</p>
 
 <h2>よくあるエラー</h2>
-<table>
+<div class="table-wrap"><table>
   <tr><th>テスト結果</th><th>対処</th></tr>
   <tr><td>アドレス：接続できない</td><td>サービスとポートを確認。スマホと PC を同じ Wi-Fi に。PC のファイアウォールでポートを許可。iOS 設定でローカルネットワークを許可</td></tr>
   <tr><td>アドレス：http は LAN のみ</td><td>インターネット上のサービスは https に</td></tr>
@@ -113,7 +121,7 @@
   <tr><td>API 形式（400/422）</td><td>モデル名や音声名の誤りが多い。テスト結果のサービスの返答を確認</td></tr>
   <tr><td>WAV ではない</td><td><code>response_format: "wav"</code> に対応させる</td></tr>
   <tr><td>サービス側のエラー（5xx）</td><td>アドレスとキーは通っている。サーバーのログを確認</td></tr>
-</table>
+</table></div>
 </section>
 
 <section lang="en">
@@ -154,7 +162,7 @@
 <p>size is always one of 1024x1024, 1536x1024 or 1024x1536. Test It really generates one small image and is billed by the service.</p>
 
 <h2>Common errors</h2>
-<table>
+<div class="table-wrap"><table>
   <tr><th>Test result</th><th>What to do</th></tr>
   <tr><td>Address: can't connect</td><td>Check the service is running and the port is right; same Wi-Fi as the phone; allow the port in the computer's firewall; allow Local Network for Thoth in iOS Settings</td></tr>
   <tr><td>Address: http only works locally</td><td>Use https for services on the internet</td></tr>
@@ -164,10 +172,16 @@
   <tr><td>Format (400/422)</td><td>Usually a wrong model or voice name; read the service's reply in the test result</td></tr>
   <tr><td>Not WAV</td><td>Make the service support <code>response_format: "wav"</code></td></tr>
   <tr><td>Service error (5xx)</td><td>Address and key got through; check the server logs</td></tr>
-</table>
+</table></div>
 </section>
 
-<footer>Thoth · <a href="privacy.html">隐私 / Privacy</a> · <a href="support.html">支持 / Support</a></footer>
+<footer>
+  <span>Thoth</span>
+  <a href="guide.html" data-zh="使用指南" data-ja="使い方" data-en="Guide">使用指南</a>
+  <a href="privacy.html" data-zh="隐私政策" data-ja="プライバシー" data-en="Privacy">隐私政策</a>
+  <a href="support.html" data-zh="支持" data-ja="サポート" data-en="Support">支持</a>
+  <a href="mods-terms.html" data-zh="Mods 条款" data-ja="Mods 規約" data-en="Mods Terms">Mods 条款</a>
+</footer>
 </main>
 </body>
 </html>

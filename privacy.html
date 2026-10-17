@@ -4,6 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Thoth · 隐私政策 / Privacy Policy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Noto+Serif+SC:wght@400;600&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <script src="lang.js"></script>
 </head>
@@ -11,7 +14,12 @@
 <main>
 <header class="site">
   <a class="home" href="./">THOTH</a>
-  <nav class="lang"><button data-lang="zh">中文</button><button data-lang="ja">日本語</button><button data-lang="en">English</button></nav>
+  <nav class="links" aria-label="站点">
+    <a href="guide.html" data-zh="使用指南" data-ja="使い方" data-en="Guide">使用指南</a>
+    <a href="support.html" data-zh="支持" data-ja="サポート" data-en="Support">支持</a>
+    <a href="privacy.html" aria-current="page" data-zh="隐私" data-ja="プライバシー" data-en="Privacy">隐私</a>
+  </nav>
+  <nav class="lang" aria-label="语言"><button data-lang="zh">中</button><button data-lang="ja">日</button><button data-lang="en">EN</button></nav>
 </header>
 
 <!-- ============================== 中文 ============================== -->
@@ -40,7 +48,7 @@
 <p>第一次把聊天发给某个服务之前，Thoth 会说明会发什么、发给谁，并请你同意。你可以随时在「设置 › 隐私与 API Key」里撤回；撤回后不会再向那个服务发送任何内容。这些服务怎么处理数据，由它们各自的隐私政策决定，我们看不到也拿不到这些内容。</p>
 
 <h2>3. 你开启后才会用到的其他服务</h2>
-<table>
+<div class="table-wrap"><table>
   <tr><th>功能</th><th>发送的内容</th><th>发给谁</th></tr>
   <tr><td>在线语音（朗读）</td><td>要朗读的文字；克隆音色时的参考音频</td><td>你选的语音服务：Edge 在线语音（Microsoft）、VoxCPM2 体验服务（Hugging Face 上的 OpenBMB 演示）、MOSS、ElevenLabs、MiniMax、小米 MiMo、阿里云百炼，或你自己部署的服务</td></tr>
   <tr><td>在线语音识别</td><td>你的语音录音</td><td>你为这位朋友选的识别服务；默认用 Apple 的系统语音识别</td></tr>
@@ -49,7 +57,7 @@
   <tr><td>联网搜索</td><td>搜索关键词</td><td>Bing、Google 新闻、维基百科</td></tr>
   <tr><td>MCP 工具</td><td>调用工具时的参数</td><td>你自己添加的 MCP 服务</td></tr>
   <tr><td>天气</td><td>刷新天气时的大致位置</td><td>Apple WeatherKit</td></tr>
-</table>
+</table></div>
 <p>健康、日历、Apple Music 的数据只在设备上读取和显示；只有你在设置里明确允许某位朋友读取时，相关内容才会作为聊天内容发给那位朋友用的模型服务。</p>
 
 <h2>4. Mods（社区）</h2>
@@ -104,7 +112,7 @@
 <p>初めてあるサービスに会話を送る前に、何をどこへ送るかを説明し、同意をお願いします。「設定 › プライバシーと API Key」でいつでも取り消せ、取り消した後はそのサービスに何も送られません。各サービスでのデータの扱いはそれぞれのプライバシーポリシーに従い、私たちがその内容を見ることはできません。</p>
 
 <h2>3. 有効にしたときだけ使われるその他のサービス</h2>
-<table>
+<div class="table-wrap"><table>
   <tr><th>機能</th><th>送信される内容</th><th>送信先</th></tr>
   <tr><td>オンライン音声（読み上げ）</td><td>読み上げるテキスト、声のクローン用の参照音声</td><td>選んだ音声サービス：Edge オンライン音声（Microsoft）、VoxCPM2 体験サービス（Hugging Face 上の OpenBMB デモ）、MOSS、ElevenLabs、MiniMax、Xiaomi MiMo、Alibaba Cloud Model Studio、または自分で立てたサービス</td></tr>
   <tr><td>オンライン音声認識</td><td>音声の録音</td><td>その友だちに選んだ認識サービス（既定は Apple のシステム音声認識）</td></tr>
@@ -113,7 +121,7 @@
   <tr><td>ウェブ検索</td><td>検索キーワード</td><td>Bing、Google ニュース、Wikipedia</td></tr>
   <tr><td>MCP ツール</td><td>ツール呼び出しの引数</td><td>自分で追加した MCP サービス</td></tr>
   <tr><td>天気</td><td>天気を更新するときのおおよその位置</td><td>Apple WeatherKit</td></tr>
-</table>
+</table></div>
 <p>ヘルスケア、カレンダー、Apple Music のデータは端末内でのみ読み取り・表示されます。設定で特定の友だちに読み取りを許可した場合に限り、関連する内容が会話としてその友だちのモデルサービスへ送られます。</p>
 
 <h2>4. Mods（コミュニティ）</h2>
@@ -168,7 +176,7 @@
 <p>Before chats are first sent to a service, Thoth explains what will be sent and where, and asks for your agreement. You can withdraw at any time in Settings › Privacy &amp; API Keys; after that, nothing is sent to that service. Each service handles data under its own privacy policy. We cannot see or access this content.</p>
 
 <h2>3. Other services, used only when you turn them on</h2>
-<table>
+<div class="table-wrap"><table>
   <tr><th>Feature</th><th>What is sent</th><th>Sent to</th></tr>
   <tr><td>Online voices (read aloud)</td><td>Text to read; reference audio when cloning a voice</td><td>The voice service you choose: Edge online voices (Microsoft), the VoxCPM2 trial (an OpenBMB demo on Hugging Face), MOSS, ElevenLabs, MiniMax, Xiaomi MiMo, Alibaba Cloud Model Studio, or a service you host</td></tr>
   <tr><td>Online speech recognition</td><td>Your voice recordings</td><td>The recognition service you choose for that friend; Apple's speech recognition by default</td></tr>
@@ -177,7 +185,7 @@
   <tr><td>Web search</td><td>Search terms</td><td>Bing, Google News, Wikipedia</td></tr>
   <tr><td>MCP tools</td><td>Tool call arguments</td><td>MCP services you add yourself</td></tr>
   <tr><td>Weather</td><td>Approximate location when weather refreshes</td><td>Apple WeatherKit</td></tr>
-</table>
+</table></div>
 <p>Health, Calendar and Apple Music data are read and shown on device only. Only if you explicitly allow a friend to read them in Settings is the relevant content sent, as part of the chat, to that friend's model service.</p>
 
 <h2>4. Mods (community)</h2>
@@ -207,7 +215,13 @@
 <p>Email: <a href="mailto:Kennethskyhigh@163.com">Kennethskyhigh@163.com</a> · <a href="support.html">Support</a></p>
 </section>
 
-<footer>Thoth · <a href="privacy.html">隐私 / Privacy</a> · <a href="support.html">支持 / Support</a></footer>
+<footer>
+  <span>Thoth</span>
+  <a href="guide.html" data-zh="使用指南" data-ja="使い方" data-en="Guide">使用指南</a>
+  <a href="privacy.html" data-zh="隐私政策" data-ja="プライバシー" data-en="Privacy">隐私政策</a>
+  <a href="support.html" data-zh="支持" data-ja="サポート" data-en="Support">支持</a>
+  <a href="mods-terms.html" data-zh="Mods 条款" data-ja="Mods 規約" data-en="Mods Terms">Mods 条款</a>
+</footer>
 </main>
 </body>
 </html>

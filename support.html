@@ -4,6 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Thoth · 支持 / Support</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Noto+Serif+SC:wght@400;600&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <script src="lang.js"></script>
 </head>
@@ -11,7 +14,12 @@
 <main>
 <header class="site">
   <a class="home" href="./">THOTH</a>
-  <nav class="lang"><button data-lang="zh">中文</button><button data-lang="ja">日本語</button><button data-lang="en">English</button></nav>
+  <nav class="links" aria-label="站点">
+    <a href="guide.html" data-zh="使用指南" data-ja="使い方" data-en="Guide">使用指南</a>
+    <a href="support.html" aria-current="page" data-zh="支持" data-ja="サポート" data-en="Support">支持</a>
+    <a href="privacy.html" data-zh="隐私" data-ja="プライバシー" data-en="Privacy">隐私</a>
+  </nav>
+  <nav class="lang" aria-label="语言"><button data-lang="zh">中</button><button data-lang="ja">日</button><button data-lang="en">EN</button></nav>
 </header>
 
 <section lang="zh-Hans">
@@ -77,7 +85,13 @@
 <p>Report it from the ··· menu on the Mod's page, or email us. Reports are reviewed by a person; violating content is taken down and the submitter may be barred from submitting.</p>
 </section>
 
-<footer>Thoth · <a href="privacy.html">隐私 / Privacy</a> · <a href="support.html">支持 / Support</a></footer>
+<footer>
+  <span>Thoth</span>
+  <a href="guide.html" data-zh="使用指南" data-ja="使い方" data-en="Guide">使用指南</a>
+  <a href="privacy.html" data-zh="隐私政策" data-ja="プライバシー" data-en="Privacy">隐私政策</a>
+  <a href="support.html" data-zh="支持" data-ja="サポート" data-en="Support">支持</a>
+  <a href="mods-terms.html" data-zh="Mods 条款" data-ja="Mods 規約" data-en="Mods Terms">Mods 条款</a>
+</footer>
 </main>
 </body>
 </html>

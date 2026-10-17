@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thoth · 使用指南 / Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Noto+Serif+SC:wght@400;600&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="lang.js"></script>
+</head>
+<body>
+<main>
+<header class="site">
+  <a class="home" href="./">THOTH</a>
+  <nav class="links" aria-label="站点">
+    <a href="guide.html" aria-current="page" data-zh="使用指南" data-ja="使い方" data-en="Guide">使用指南</a>
+    <a href="support.html" data-zh="支持" data-ja="サポート" data-en="Support">支持</a>
+    <a href="privacy.html" data-zh="隐私" data-ja="プライバシー" data-en="Privacy">隐私</a>
+  </nav>
+  <nav class="lang" aria-label="语言"><button data-lang="zh">中</button><button data-lang="ja">日</button><button data-lang="en">EN</button></nav>
+</header>
+
+<!-- ============================== 中文 ============================== -->
+<section lang="zh-Hans">
+<div class="eyebrow">Guide</div>
+<h1>使用指南</h1>
+<p class="lead">从接入第一个模型，到认识朋友、让 TA 记住你、给 TA 换上声音和样子。</p>
+
+<nav class="toc" aria-label="目录">
+  <a href="#zh-start">I 开始</a><a href="#zh-chat">II 聊天</a><a href="#zh-call">III 语音通话</a><a href="#zh-memory">IV 记忆</a>
+  <a href="#zh-home">V 主页与主动消息</a><a href="#zh-abilities">VI 能力</a><a href="#zh-voice">VII 声音</a><a href="#zh-look">VIII 外观</a>
+  <a href="#zh-mods">IX Mods</a><a href="#zh-data">X 数据与隐私</a>
+</nav>
+
+<h2 id="zh-start"><span class="num">I</span>开始</h2>
+<p>第一次打开时，小托会带你走两步：</p>
+<ol>
+  <li><strong>接入一个模型服务。</strong>朋友们要借模型来思考。选一家你有 API Key 的服务（OpenAI、Anthropic、DeepSeek、阿里云百炼等），把 Key 粘进去就行。也可以接自己部署的服务，见<a href="self-hosting.html">自部署说明</a>。Key 只存在手机的钥匙串里。</li>
+  <li><strong>认识第一个朋友。</strong>起个名字、挑个模型就够了。人设可以空着，相处久了会自己长出来。</li>
+</ol>
+<p>新建朋友时可以选两种模式：</p>
+<div class="split">
+  <div><b>标准模式</b>像一个聪明的助手：先回答问题，知识和工具都用得上。</div>
+  <div><b>角色模式</b>像通讯录里的一个人：会有自己的情绪和节奏，可以不知道、不想聊、先走。</div>
+</div>
+<p>人设、说话风格这些写在朋友设置的「提示词注入」里；也可以从 <a href="#zh-mods">Mods</a> 下载别人做好的角色卡，或者导入酒馆格式的角色卡。</p>
+
+<h2 id="zh-chat"><span class="num">II</span>聊天</h2>
+<ul>
+  <li><strong>能发什么：</strong>文字、照片、文件、语音消息、表情。语音会先转成文字。</li>
+  <li><strong>TA 能回什么：</strong>文字，开了声音后也能发语音；开了表情包，会按含义挑一张发给你。</li>
+  <li><strong>消息显示：</strong>在朋友设置里可以选是否一个字一个字地出现，或者像真人一样隔一会儿才「已读」、分几条气泡回你。</li>
+  <li><strong>群聊：</strong>在「聊天」里新建群聊，把几位朋友拉到一起。每一轮会挑几位接话，@ 某位就是点名让 TA 说。</li>
+  <li><strong>第一次发给某个服务前</strong>，Thoth 会说明会发什么、发给谁，请你确认一次。</li>
+</ul>
+
+<h2 id="zh-call"><span class="num">III</span>语音通话</h2>
+<p>在聊天页发起通话，直接开口说，TA 用声音回你。需要先在朋友设置里打开「语音识别」，并选好 TA 的声音（见 <a href="#zh-voice">声音</a>）。</p>
+
+<h2 id="zh-memory"><span class="num">IV</span>记忆</h2>
+<p>每位朋友都有自己的一套记忆文件：日记、关于你的档案、TA 对自己的认识，以及换话题时留给自己的「接力棒」。聊得久了，旧的对话会整理进日记，TA 需要时再去翻。三种记忆方式可选：</p>
+<div class="table-wrap"><table>
+  <tr><th>托特模式</th><td>什么都记得，永不模糊。需要细节时会去查，查不到就坦白说。</td></tr>
+  <tr><th>人类模式</th><td>像人一样：近的清晰，远的慢慢模糊成梗概；常聊起的事保持鲜活。</td></tr>
+  <tr><th>联想模式</th><td>先浏览记忆主题，再顺着线索翻相关的往事。实验性功能。</td></tr>
+</table></div>
+<p>记忆文件都在「文件」App 的 Thoth 文件夹里，可以直接看、改、导出。朋友设置里也能浏览 TA 的记忆。</p>
+
+<h2 id="zh-home"><span class="num">V</span>主页与主动消息</h2>
+<ul>
+  <li><strong>动态：</strong>朋友们会发自己的动态，也会来你的动态下评论、点赞。你可以就地回复。</li>
+  <li><strong>主动联系：</strong>打开后，TA 会在合适的时候想起你，主动发一条消息过来。</li>
+  <li><strong>主页组件：</strong>主页封面可以放天气、日程、音乐、照片等小组件。</li>
+</ul>
+
+<h2 id="zh-abilities"><span class="num">VI</span>能力</h2>
+<p>在朋友设置的「能力」里按需打开，每位朋友可以不一样：</p>
+<ul>
+  <li><strong>联网搜索：</strong>查新闻、查资料。</li>
+  <li><strong>MCP 工具：</strong>接入你自己添加的 MCP 服务，让 TA 能用更多工具。</li>
+  <li><strong>可读取数据：</strong>天气、健康、日历。默认只在你自己的设备上显示，只有你允许了，TA 才读得到。</li>
+  <li><strong>识图：</strong>模型本身看不了图时，可以借一个能看图的模型或系统识别来帮 TA 看。</li>
+  <li><strong>生成图片：</strong>标准模式下按你的要求画图；角色模式下 TA 会发自己「拍」的照片。</li>
+  <li><strong>表情包：</strong>给 TA 的收藏里加几张带含义的表情，TA 聊天时会自己挑着发。</li>
+</ul>
+<p>不确定模型支持哪些能力，可以在朋友设置的「模型」里点「测试当前模型配置」。</p>
+
+<h2 id="zh-voice"><span class="num">VII</span>声音</h2>
+<ul>
+  <li><strong>语音服务：</strong>在「设置 › 模型与服务 › 语音服务」里选。Edge 在线语音和 VoxCPM2 体验不用 Key；MOSS、ElevenLabs、MiniMax、小米 MiMo、阿里云百炼用你自己的 Key；也可以接自己部署的服务。</li>
+  <li><strong>本地语音：</strong>下载 Qwen3-TTS 模型后，在手机上直接生成，不联网。</li>
+  <li><strong>克隆声音：</strong>部分服务可以用一段几秒钟的录音克隆出 TA 的声音。</li>
+  <li><strong>语音识别：</strong>默认用系统的识别，也可以为某位朋友换成在线识别。</li>
+</ul>
+
+<h2 id="zh-look"><span class="num">VIII</span>外观</h2>
+<ul>
+  <li><strong>外观工坊：</strong>在「设置 › 外观」里换整套外观，或者自己调配色、气泡、背景；浅色和深色可以各用一套。</li>
+  <li><strong>开屏动画：</strong>小托、朱鹭、字符月亮、篝火、星空，或者用自己相册里一段 6 秒以内的视频。</li>
+  <li><strong>语言与字体：</strong>中文、日本語、English，也可以导入自己的字体。</li>
+</ul>
+
+<h2 id="zh-mods"><span class="num">IX</span>Mods</h2>
+<p>大家分享角色卡、外观和表情包的地方。</p>
+<ul>
+  <li><strong>下载：</strong>浏览、收藏，一键用上。收藏会跟着 iCloud 走，换手机也在。</li>
+  <li><strong>投稿：</strong>在「我的 Mods › 投稿」里交，人工审核通过后才会上架。规则见 <a href="mods-terms.html">Mods 投稿条款</a>。</li>
+  <li><strong>举报和隐藏：</strong>作品页右上角「···」。</li>
+</ul>
+
+<h2 id="zh-data"><span class="num">X</span>数据与隐私</h2>
+<ul>
+  <li>聊天和记忆存在手机上；回复时相关内容直接发给你选的服务，不经过我们。详见<a href="privacy.html">隐私政策</a>。</li>
+  <li>「设置 › 用量」看每位朋友用了多少 token。</li>
+  <li>「设置 › 隐私与 API Key」看已经同意发送的服务，可以撤回。</li>
+</ul>
+<p>还有问题？看<a href="support.html">支持页</a>，或者写信给我们。</p>
+</section>
+
+<!-- ============================== 日本語 ============================== -->
+<section lang="ja">
+<div class="eyebrow">Guide</div>
+<h1>使い方</h1>
+<p class="lead">最初のモデルをつなぐところから、友だちと出会い、覚えてもらい、声と姿を与えるまで。</p>
+
+<nav class="toc" aria-label="目次">
+  <a href="#ja-start">I はじめに</a><a href="#ja-chat">II チャット</a><a href="#ja-call">III 音声通話</a><a href="#ja-memory">IV 記憶</a>
+  <a href="#ja-home">V ホームと自発メッセージ</a><a href="#ja-abilities">VI 機能</a><a href="#ja-voice">VII 声</a><a href="#ja-look">VIII 外観</a>
+  <a href="#ja-mods">IX Mods</a><a href="#ja-data">X データとプライバシー</a>
+</nav>
+
+<h2 id="ja-start"><span class="num">I</span>はじめに</h2>
+<p>最初に開くと、小托（シャオトゥオ）が 2 つのステップを案内します。</p>
+<ol>
+  <li><strong>モデルサービスをつなぐ。</strong>友だちが考えるにはモデルが必要です。API Key を持っているサービス（OpenAI、Anthropic、DeepSeek、Alibaba Cloud Model Studio など）を選び、キーを貼り付けるだけ。自分で立てたサービスも使えます（<a href="self-hosting.html">接続方法</a>）。キーは端末のキーチェーンにだけ保存されます。</li>
+  <li><strong>最初の友だちに会う。</strong>名前とモデルだけで十分。人柄は空欄でも、付き合ううちに育っていきます。</li>
+</ol>
+<p>友だちを作るときは 2 つのモードから選べます。</p>
+<div class="split">
+  <div><b>標準モード</b>賢いアシスタント。まず質問に答え、知識もツールも使います。</div>
+  <div><b>キャラクターモード</b>連絡先の中の一人。自分の気分やペースがあり、知らない・話したくない・先に抜けることもあります。</div>
+</div>
+<p>人設や話し方は友だちの設定の「プロンプト文書」に書きます。<a href="#ja-mods">Mods</a> から他の人のキャラクターカードをダウンロードしたり、Tavern 形式のカードを読み込んだりもできます。</p>
+
+<h2 id="ja-chat"><span class="num">II</span>チャット</h2>
+<ul>
+  <li><strong>送れるもの：</strong>テキスト、写真、ファイル、ボイスメッセージ、スタンプ。音声は文字起こししてから送られます。</li>
+  <li><strong>返ってくるもの：</strong>テキスト。声を設定すればボイスでも返信し、スタンプを有効にすれば意味に合うものを選んで送ります。</li>
+  <li><strong>メッセージ表示：</strong>一文字ずつ表示するか、人のように少し間をおいて既読にし、いくつかの吹き出しに分けて返すかを選べます。</li>
+  <li><strong>グループチャット：</strong>「チャット」から作成して複数の友だちを集めます。毎回何人かが返事をし、@ で指名もできます。</li>
+  <li><strong>初めてサービスに送る前に</strong>、何をどこへ送るかを説明し、一度確認します。</li>
+</ul>
+
+<h2 id="ja-call"><span class="num">III</span>音声通話</h2>
+<p>チャット画面から通話を始め、そのまま話しかけると声で返事をします。友だちの設定で「音声認識」を有効にし、声を選んでおいてください（<a href="#ja-voice">声</a>）。</p>
+
+<h2 id="ja-memory"><span class="num">IV</span>記憶</h2>
+<p>友だちごとに記憶ファイルがあります。日記、あなたについてのプロフィール、自分自身についての認識、話題が変わるときの「引き継ぎメモ」。長く話すと古い会話は日記にまとめられ、必要なときに読み返します。記憶のしかたは 3 種類。</p>
+<div class="table-wrap"><table>
+  <tr><th>トートモード</th><td>すべてを覚え、ぼやけません。細部は調べ、見つからなければ正直に言います。</td></tr>
+  <tr><th>人間モード</th><td>人のように、最近のことは鮮明、昔のことは少しずつ大まかに。よく話すことは鮮明なまま。</td></tr>
+  <tr><th>連想モード</th><td>まず記憶のテーマを眺め、手がかりをたどって関連する出来事を読み返します。実験的な機能です。</td></tr>
+</table></div>
+<p>記憶ファイルは「ファイル」アプリの Thoth フォルダにあり、そのまま閲覧・編集・書き出しができます。</p>
+
+<h2 id="ja-home"><span class="num">V</span>ホームと自発メッセージ</h2>
+<ul>
+  <li><strong>投稿：</strong>友だちは自分の投稿をし、あなたの投稿にコメントや「いいね」をします。その場で返信できます。</li>
+  <li><strong>自発的な連絡：</strong>有効にすると、ふさわしいときにあなたを思い出してメッセージを送ってきます。</li>
+  <li><strong>ホームのウィジェット：</strong>天気、予定、音楽、写真などを置けます。</li>
+</ul>
+
+<h2 id="ja-abilities"><span class="num">VI</span>機能</h2>
+<p>友だちの設定の「機能」で必要なものだけ有効にします。友だちごとに変えられます。</p>
+<ul>
+  <li><strong>ウェブ検索：</strong>ニュースや調べもの。</li>
+  <li><strong>MCP ツール：</strong>自分で追加した MCP サービスで、使えるツールを増やします。</li>
+  <li><strong>読み取れるデータ：</strong>天気、ヘルスケア、カレンダー。許可したときだけ友だちが読めます。</li>
+  <li><strong>画像認識：</strong>モデルが画像を見られないとき、別の視覚モデルやシステム認識で代わりに見ます。</li>
+  <li><strong>画像生成：</strong>標準モードでは頼まれた絵を描き、キャラクターモードでは自分で「撮った」写真を送ります。</li>
+  <li><strong>スタンプ：</strong>意味を付けたスタンプをお気に入りに入れると、会話の中で選んで送ります。</li>
+</ul>
+<p>モデルの対応状況は、友だちの設定の「モデル」で「現在のモデル設定をテスト」から確認できます。</p>
+
+<h2 id="ja-voice"><span class="num">VII</span>声</h2>
+<ul>
+  <li><strong>音声サービス：</strong>「設定 › モデルとサービス › 音声サービス」で選びます。Edge オンライン音声と VoxCPM2 体験はキー不要。MOSS、ElevenLabs、MiniMax、Xiaomi MiMo、Alibaba Cloud Model Studio は自分のキーで。自分で立てたサービスも使えます。</li>
+  <li><strong>ローカル音声：</strong>Qwen3-TTS モデルをダウンロードすると、端末だけで生成できます。</li>
+  <li><strong>声のクローン：</strong>一部のサービスでは数秒の録音から声を作れます。</li>
+  <li><strong>音声認識：</strong>既定はシステムの認識。友だちごとにオンライン認識に変えられます。</li>
+</ul>
+
+<h2 id="ja-look"><span class="num">VIII</span>外観</h2>
+<ul>
+  <li><strong>外観スタジオ：</strong>「設定 › 外観」で外観を丸ごと替えたり、配色・吹き出し・背景を自分で調整したり。ライトとダークで別々に設定できます。</li>
+  <li><strong>起動アニメーション：</strong>小托、トキ、文字の月、焚き火、星空、または写真アプリの 6 秒以内の動画。</li>
+  <li><strong>言語とフォント：</strong>中文、日本語、English。自分のフォントも読み込めます。</li>
+</ul>
+
+<h2 id="ja-mods"><span class="num">IX</span>Mods</h2>
+<p>キャラクターカード、外観、スタンプを共有する場所です。</p>
+<ul>
+  <li><strong>ダウンロード：</strong>眺めて、保存して、すぐ使えます。保存したものは iCloud で同期されます。</li>
+  <li><strong>投稿：</strong>「マイ Mods › 投稿」から。人の手で審査され、承認後に公開されます（<a href="mods-terms.html">投稿規約</a>）。</li>
+  <li><strong>報告・非表示：</strong>作品ページ右上の「···」から。</li>
+</ul>
+
+<h2 id="ja-data"><span class="num">X</span>データとプライバシー</h2>
+<ul>
+  <li>会話と記憶は端末に保存され、返信の際は関係する内容があなたの選んだサービスへ直接送られます（<a href="privacy.html">プライバシーポリシー</a>）。</li>
+  <li>「設定 › 使用量」で友だちごとのトークン量を確認できます。</li>
+  <li>「設定 › プライバシーと API Key」で送信に同意したサービスを確認・取り消しできます。</li>
+</ul>
+<p>ほかに質問があれば<a href="support.html">サポート</a>へ。</p>
+</section>
+
+<!-- ============================== English ============================== -->
+<section lang="en">
+<div class="eyebrow">Guide</div>
+<h1>Guide</h1>
+<p class="lead">From connecting your first model to meeting a friend, being remembered, and giving them a voice and a look.</p>
+
+<nav class="toc" aria-label="Contents">
+  <a href="#en-start">I Getting started</a><a href="#en-chat">II Chatting</a><a href="#en-call">III Voice calls</a><a href="#en-memory">IV Memory</a>
+  <a href="#en-home">V Home &amp; messages</a><a href="#en-abilities">VI Abilities</a><a href="#en-voice">VII Voice</a><a href="#en-look">VIII Appearance</a>
+  <a href="#en-mods">IX Mods</a><a href="#en-data">X Data &amp; privacy</a>
+</nav>
+
+<h2 id="en-start"><span class="num">I</span>Getting started</h2>
+<p>The first time you open Thoth, Xiaotuo walks you through two steps:</p>
+<ol>
+  <li><strong>Connect a model service.</strong> Friends need a model to think with. Pick a service you have an API key for (OpenAI, Anthropic, DeepSeek, Alibaba Cloud Model Studio and others) and paste the key. You can also connect a service you host yourself; see <a href="self-hosting.html">self-hosting</a>. Keys stay in your phone's Keychain.</li>
+  <li><strong>Meet your first friend.</strong> A name and a model are enough. Leave the persona blank if you like; it grows as you talk.</li>
+</ol>
+<p>New friends come in two modes:</p>
+<div class="split">
+  <div><b>Standard</b>A smart assistant: answers first, uses knowledge and tools.</div>
+  <div><b>Character</b>A person in your contacts: has moods and a pace of their own, and may not know, not feel like talking, or leave first.</div>
+</div>
+<p>Persona and speaking style live in the friend's Prompt Documents. You can also download character cards from <a href="#en-mods">Mods</a> or import Tavern-format cards.</p>
+
+<h2 id="en-chat"><span class="num">II</span>Chatting</h2>
+<ul>
+  <li><strong>You can send</strong> text, photos, files, voice messages and stickers. Voice is turned into text first.</li>
+  <li><strong>They can reply</strong> with text, with voice once you set one up, and with a fitting sticker if stickers are on.</li>
+  <li><strong>Message display:</strong> choose letter-by-letter streaming, or a more human rhythm: read a little later and reply in several bubbles.</li>
+  <li><strong>Group chats:</strong> create one in Chats and bring several friends together. A few reply each round; @ someone to call on them.</li>
+  <li><strong>Before chats first go to a service</strong>, Thoth explains what will be sent and where, and asks you once.</li>
+</ul>
+
+<h2 id="en-call"><span class="num">III</span>Voice calls</h2>
+<p>Start a call from the chat and just talk; they answer out loud. Turn on Speech Recognition in the friend's settings and choose their voice first (see <a href="#en-voice">Voice</a>).</p>
+
+<h2 id="en-memory"><span class="num">IV</span>Memory</h2>
+<p>Each friend keeps their own memory files: a diary, a profile of you, how they see themselves, and a hand-off note for when the conversation moves on. Older conversations are written into the diary and looked up when needed. Three ways to remember:</p>
+<div class="table-wrap"><table>
+  <tr><th>Thoth</th><td>Remembers everything, never blurs. Looks details up, and says so when it can't find them.</td></tr>
+  <tr><th>Human</th><td>Like a person: recent things are clear, old ones fade to an outline; what you often talk about stays vivid.</td></tr>
+  <tr><th>Associative</th><td>Browses memory topics first, then follows the threads to related moments. Experimental.</td></tr>
+</table></div>
+<p>Memory files are in the Thoth folder of the Files app, where you can read, edit and export them.</p>
+
+<h2 id="en-home"><span class="num">V</span>Home &amp; messages</h2>
+<ul>
+  <li><strong>Posts:</strong> friends share their own posts and comment on or like yours. Reply right there.</li>
+  <li><strong>Reaching out:</strong> turn it on and they'll think of you at the right moment and message first.</li>
+  <li><strong>Home widgets:</strong> weather, schedule, music, photos and more on your home cover.</li>
+</ul>
+
+<h2 id="en-abilities"><span class="num">VI</span>Abilities</h2>
+<p>Turn on what you need under the friend's Capabilities; each friend can differ.</p>
+<ul>
+  <li><strong>Web search</strong> for news and facts.</li>
+  <li><strong>MCP tools</strong> from MCP services you add yourself.</li>
+  <li><strong>Readable data:</strong> weather, Health, Calendar. Friends only read them if you allow it.</li>
+  <li><strong>Image recognition:</strong> when the model can't see images, another vision model or on-device recognition looks for them.</li>
+  <li><strong>Image generation:</strong> in Standard mode they draw what you ask; in Character mode they send photos they "took".</li>
+  <li><strong>Stickers:</strong> add stickers with meanings to their Favorites and they'll pick from them as you chat.</li>
+</ul>
+<p>Not sure what your model supports? Use Test Current Model Configuration under the friend's Model settings.</p>
+
+<h2 id="en-voice"><span class="num">VII</span>Voice</h2>
+<ul>
+  <li><strong>Voice services:</strong> choose in Settings › Models &amp; Services › Voice Services. Edge online voices and the VoxCPM2 trial need no key; MOSS, ElevenLabs, MiniMax, Xiaomi MiMo and Alibaba Cloud Model Studio use your own key; self-hosted services work too.</li>
+  <li><strong>On-device voice:</strong> download the Qwen3-TTS model to generate speech on the phone, offline.</li>
+  <li><strong>Voice cloning:</strong> some services can build a voice from a few seconds of audio.</li>
+  <li><strong>Speech recognition:</strong> system recognition by default, or an online service per friend.</li>
+</ul>
+
+<h2 id="en-look"><span class="num">VIII</span>Appearance</h2>
+<ul>
+  <li><strong>Appearance Studio:</strong> in Settings › Appearance, switch the whole look or tune colors, bubbles and backgrounds; light and dark can each have their own.</li>
+  <li><strong>Launch animation:</strong> Xiaotuo, the ibis, the ASCII moon, a bonfire, stars, or a video of up to 6 seconds from your Photos.</li>
+  <li><strong>Language &amp; fonts:</strong> 中文, 日本語, English, plus fonts you import.</li>
+</ul>
+
+<h2 id="en-mods"><span class="num">IX</span>Mods</h2>
+<p>Where people share character cards, looks and sticker sets.</p>
+<ul>
+  <li><strong>Download:</strong> browse, save and use in one tap. Saved items follow you through iCloud.</li>
+  <li><strong>Submit:</strong> from My Mods › Submit. Every submission is reviewed by a person before it's listed; see the <a href="mods-terms.html">submission terms</a>.</li>
+  <li><strong>Report or hide</strong> from the ··· menu on a Mod's page.</li>
+</ul>
+
+<h2 id="en-data"><span class="num">X</span>Data &amp; privacy</h2>
+<ul>
+  <li>Chats and memories stay on your phone; when a friend replies, the relevant content goes straight to the service you chose, never through us. See the <a href="privacy.html">privacy policy</a>.</li>
+  <li>Settings › Usage shows tokens used per friend.</li>
+  <li>Settings › Privacy &amp; API Keys lists the services you've allowed, and lets you withdraw.</li>
+</ul>
+<p>More questions? See <a href="support.html">Support</a> or email us.</p>
+</section>
+
+<footer>
+  <span>Thoth</span>
+  <a href="guide.html" data-zh="使用指南" data-ja="使い方" data-en="Guide">使用指南</a>
+  <a href="privacy.html" data-zh="隐私政策" data-ja="プライバシー" data-en="Privacy">隐私政策</a>
+  <a href="support.html" data-zh="支持" data-ja="サポート" data-en="Support">支持</a>
+  <a href="mods-terms.html" data-zh="Mods 条款" data-ja="Mods 規約" data-en="Mods Terms">Mods 条款</a>
+</footer>
+</main>
+</body>
+</html>

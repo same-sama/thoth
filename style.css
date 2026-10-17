@@ -1,52 +1,118 @@
+/* Thoth 网站 · A 方向「纸莎草」(2026-10-18):暖纸底、衬线标题、线描朱鹭,延续 App「关于」页。 */
 :root {
-  --bg: #f6f4ef;
-  --ink: #1d1b18;
-  --muted: #6b665d;
-  --line: #ddd8cc;
-  --accent: #8a5a2b;
-  --card: #fffdf8;
+  --bg: #ece7da;
+  --ink: #1f1b16;
+  --body: #3d372e;
+  --muted: #6d6455;
+  --faint: #9a8f7a;
+  --line: #cfc5ad;
+  --line-soft: #ddd4c0;
+  --accent: #7a4a1f;
+  --accent-hover: #5a3412;
+  --card: #f4f0e6;
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #171614;
-    --ink: #ece8df;
-    --muted: #a39d91;
-    --line: #34312b;
-    --accent: #d8a36a;
-    --card: #1f1d1a;
+    --bg: #1f1d1a;
+    --ink: #ede9df;
+    --body: #cfc8ba;
+    --muted: #a39b8b;
+    --faint: #7d7566;
+    --line: #3d3830;
+    --line-soft: #332f29;
+    --accent: #d9a46b;
+    --accent-hover: #ecc08f;
+    --card: #26231f;
   }
 }
 * { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
 body {
   margin: 0;
   background: var(--bg);
-  color: var(--ink);
-  font: 16px/1.7 -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans", "Noto Sans CJK SC", sans-serif;
+  color: var(--body);
+  font: 16px/1.85 "Noto Sans SC", -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans", sans-serif;
 }
-main { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
-header.site { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 28px; }
-header.site a.home { color: var(--ink); text-decoration: none; font-weight: 600; letter-spacing: 0.12em; font-family: Georgia, "Times New Roman", serif; }
+main { max-width: 760px; margin: 0 auto; padding: 24px 20px 72px; }
+main.wide { max-width: 1120px; }
+
+/* 顶栏 */
+header.site { display: flex; align-items: center; justify-content: space-between; gap: 12px 20px; flex-wrap: wrap; margin-bottom: 40px; }
+header.site a.home { color: var(--ink); text-decoration: none; font: 600 15px/1 "Cormorant Garamond", Georgia, serif; letter-spacing: 0.32em; }
+header.site nav.links { display: flex; gap: 6px 20px; flex-wrap: wrap; font-size: 14px; }
+header.site nav.links a { color: var(--muted); text-decoration: none; padding: 6px 0; }
+header.site nav.links a:hover, header.site nav.links a[aria-current="page"] { color: var(--ink); }
+nav.lang { display: flex; gap: 14px; }
 nav.lang button {
-  font: inherit; font-size: 14px; color: var(--muted); background: none;
-  border: 1px solid var(--line); border-radius: 999px; padding: 2px 12px; margin-left: 4px; cursor: pointer;
+  font: inherit; font-size: 13px; color: var(--muted); background: none; border: 0;
+  padding: 6px 0; cursor: pointer; border-bottom: 1px solid transparent; min-width: 24px;
 }
-nav.lang button[aria-pressed="true"] { color: var(--ink); border-color: var(--ink); }
-h1 { font-size: 28px; line-height: 1.3; margin: 0 0 8px; }
-h2 { font-size: 19px; margin: 32px 0 8px; }
-h3 { font-size: 16px; margin: 20px 0 4px; }
-p, li { color: var(--ink); }
-.muted, .updated { color: var(--muted); font-size: 14px; }
-a { color: var(--accent); }
-ul { padding-left: 1.2em; }
-code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.9em; background: var(--card); border: 1px solid var(--line); border-radius: 4px; padding: 0 4px; }
-pre { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 12px; overflow-x: auto; font-size: 14px; }
+nav.lang button[aria-pressed="true"] { color: var(--ink); border-bottom-color: var(--ink); }
+
+/* 文字 */
+h1, h2, h3 { color: var(--ink); font-family: "Noto Serif SC", "Songti SC", serif; font-weight: 600; }
+h1 { font-size: 30px; line-height: 1.35; margin: 6px 0 12px; }
+h2 { font-size: 19px; line-height: 1.5; margin: 44px 0 10px; }
+h3 { font-size: 16px; margin: 24px 0 4px; }
+h2 .num { font: 500 16px "Cormorant Garamond", Georgia, serif; color: var(--faint); margin-right: 10px; letter-spacing: 0.06em; }
+.eyebrow, .updated { font: 11px/1.6 ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--faint); letter-spacing: 0.12em; text-transform: uppercase; }
+.lead { font-family: "Noto Serif SC", serif; font-size: 17px; color: var(--muted); }
+p, li { color: var(--body); }
+a { color: var(--accent); text-underline-offset: 3px; }
+a:hover { color: var(--accent-hover); }
+ul, ol { padding-left: 1.2em; }
+strong { color: var(--ink); font-weight: 500; }
+code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.88em; background: var(--card); border: 1px solid var(--line-soft); padding: 0 4px; }
+pre { background: var(--card); border: 1px solid var(--line-soft); padding: 12px 14px; overflow-x: auto; font-size: 13px; line-height: 1.6; }
 pre code { border: 0; padding: 0; background: none; }
-table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 12px 0; }
-th, td { text-align: left; border-bottom: 1px solid var(--line); padding: 8px 6px; vertical-align: top; }
-.cards { display: grid; gap: 12px; margin: 24px 0; }
-.cards a { display: block; padding: 14px 16px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; color: var(--ink); text-decoration: none; }
-.cards a span { display: block; color: var(--muted); font-size: 14px; }
-footer { margin-top: 48px; color: var(--muted); font-size: 13px; }
+.path { font-family: "Noto Serif SC", serif; color: var(--ink); white-space: nowrap; }
+.table-wrap { overflow-x: auto; margin: 14px 0; border-top: 1px solid var(--line); }
+table { width: 100%; border-collapse: collapse; font-size: 14px; line-height: 1.7; }
+th, td { text-align: left; border-bottom: 1px solid var(--line-soft); padding: 10px 8px 10px 0; vertical-align: top; }
+th { color: var(--ink); font-weight: 500; }
+
+/* 首页 */
+.hero { display: grid; gap: 28px; align-items: center; margin: 8px 0 32px; }
+.hero .ibis { display: flex; justify-content: center; }
+.hero .ibis svg { width: min(64vw, 260px); height: auto; }
+.hero h1 { font-size: clamp(30px, 6vw, 52px); }
+.hero .text { text-align: center; }
+@media (min-width: 860px) {
+  .hero { grid-template-columns: 1fr 1fr; margin-top: 40px; }
+  .hero .text { text-align: left; order: 0; }
+  .hero .ibis svg { width: 400px; }
+}
+.facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 14px 0; text-align: center; font-size: 12px; color: var(--muted); margin: 0 0 24px; }
+.facts b { display: block; font: 600 15px/1.6 "Noto Serif SC", serif; color: var(--ink); }
+.rows { display: flex; flex-direction: column; margin: 8px 0; }
+.rows a { display: flex; justify-content: space-between; align-items: center; gap: 12px; min-height: 52px; padding: 12px 4px; border-bottom: 1px solid var(--line-soft); color: var(--ink); text-decoration: none; font-size: 16px; }
+.rows a:last-child { border-bottom: 0; }
+.rows a span { font-size: 13px; color: var(--faint); text-align: right; }
+.rows a:hover span { color: var(--accent); }
+
+/* 指南目录 */
+.toc { border: 1px solid var(--line); padding: 14px 18px; margin: 20px 0 8px; font-size: 14px; columns: 2; column-gap: 24px; }
+.toc a { display: block; padding: 3px 0; color: var(--muted); text-decoration: none; break-inside: avoid; }
+.toc a:hover { color: var(--ink); }
+@media (max-width: 480px) { .toc { columns: 1; } }
+.split { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border: 1px solid var(--line); margin: 16px 0; }
+.split > div { padding: 12px 14px; font-size: 13px; line-height: 1.75; }
+.split > div + div { border-left: 1px solid var(--line); }
+.split b { display: block; font: 600 14px "Noto Serif SC", serif; color: var(--ink); margin-bottom: 4px; }
+@media (max-width: 420px) { .split { grid-template-columns: 1fr; } .split > div + div { border-left: 0; border-top: 1px solid var(--line); } }
+
+footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid var(--line-soft); color: var(--faint); font-size: 13px; display: flex; flex-wrap: wrap; gap: 6px 18px; }
+footer a { color: var(--muted); text-decoration: none; }
+footer a:hover { color: var(--ink); }
+
 section[lang] { display: block; }
 html.js section[lang] { display: none; }
 html.js section[lang].on { display: block; }
+
+/* 窄屏:顶栏第一行放标志和语言,页面链接换到第二行;三列表格别把前两列挤成一字一行 */
+@media (max-width: 600px) {
+  header.site nav.lang { order: 2; }
+  header.site nav.links { order: 3; width: 100%; gap: 6px 22px; }
+}
+th:first-child, td:first-child { min-width: 4.5em; }
+tr > :nth-child(2):not(:last-child) { min-width: 7em; }

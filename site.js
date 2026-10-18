@@ -46,12 +46,16 @@
     // 3. 朱鹭:一笔笔画出来,偶尔眨一下眼。
     var ibis = document.querySelector(".hero .ibis svg");
     if (ibis && !reduce) {
+      // 和 App 开屏同一套笔画和先后:头和脖子 → 喙 → 眼睛 → 三道项圈 → 太阳和光芒。
       ibis.querySelectorAll(".strokes path").forEach(function (p, i) {
-        var len = p.getTotalLength ? p.getTotalLength() : 300;
+        var len = p.getTotalLength ? Math.ceil(p.getTotalLength()) + 2 : 600;
+        var start = parseFloat(p.getAttribute("data-start")) || i * 0.2;
+        var dur = parseFloat(p.getAttribute("data-dur")) || 0.6;
         p.style.strokeDasharray = len;
         p.style.strokeDashoffset = len;
-        p.style.animation = "draw 1.4s cubic-bezier(.65,0,.35,1) " + (0.25 + i * 0.32) + "s forwards";
+        p.style.animation = "draw " + Math.max(dur, 0.12) + "s cubic-bezier(.65,0,.35,1) " + (0.35 + start) + "s forwards";
       });
+      ibis.classList.add("drawing");
       var eye = ibis.querySelector(".eye");
       if (eye) {
         (function blink() {

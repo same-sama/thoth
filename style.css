@@ -118,7 +118,16 @@ th:first-child, td:first-child { min-width: 4.5em; }
 tr > :nth-child(2):not(:last-child) { min-width: 7em; }
 
 /* ================= 动效与指南导航(2026-10-18) ================= */
-:root { --ease: cubic-bezier(.22,.61,.36,1); }
+:root { --ease: cubic-bezier(.22,.61,.36,1); --plaque: #f6f1e7; }
+@media (prefers-color-scheme: dark) { :root { --plaque: #2b2722; } }
+.hero .ibis svg .plaque { fill: var(--plaque); }
+.hero .ibis svg .glow { opacity: .22; }
+.hero .ibis svg .eye { transform-box: view-box; transform-origin: 532px 262px; transition: transform .09s ease; }
+.hero .ibis svg .eye.blink { transform: scaleY(.12); }
+@keyframes glowIn { 0% { opacity: 0; } 45% { opacity: .6; } 100% { opacity: .22; } }
+@keyframes plaqueIn { from { opacity: 0; transform: translateY(10px) scale(.985); } to { opacity: 1; transform: none; } }
+html.motion .hero .ibis svg .plaque { transform-box: fill-box; transform-origin: 50% 100%; animation: plaqueIn 1s var(--ease) .05s both; }
+html.motion .hero .ibis svg .glow { animation: glowIn 1.4s var(--ease) 2.15s both; }
 
 /* 阅读进度:顶部一根细线 */
 .progress { position: fixed; inset: 0 0 auto 0; height: 2px; z-index: 30; pointer-events: none; }
@@ -150,8 +159,6 @@ html.motion .hero .text section.on > *:nth-child(2) { animation-delay: .12s; }
 html.motion .hero .text section.on > *:nth-child(3) { animation-delay: .24s; }
 html.motion .hero .ring { animation: fadeIn 1.2s var(--ease) both; }
 html.motion .hero .ring-dots { transform-origin: 105px 105px; animation: fadeIn 1.2s var(--ease) .2s both, spin 90s linear infinite; }
-html.motion .hero .eye { transform-origin: 139px 75px; transition: transform .09s ease; animation: fadeIn .3s 1.6s both; }
-.hero .eye.blink { transform: scaleY(.1); }
 html.motion .reveal { opacity: 0; transform: translateY(12px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
 html.motion .reveal.in { opacity: 1; transform: none; }
 html.motion section[lang].on { animation: fadeIn .35s var(--ease) both; }

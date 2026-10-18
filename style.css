@@ -225,19 +225,21 @@ html[lang^="zh"] .poster .cap-zh, html[lang="ja"] .poster .cap-ja, html[lang="en
   .poster .moon { min-height: 460px; }
 }
 @media (max-width: 979px) {
-  .poster { display: flex; flex-direction: column; padding: 14px 20px 32px; }
-  .poster .sheet { display: contents; }
-  .home header.site { order: 1; }
+  /* 手机:顶栏 → [竖排 THOTH | 小月亮] → 内容。月亮尽量小,只当一枚印章。 */
+  .poster { display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-areas: "head head" "mark moon" "copy copy"; padding: 14px 20px 32px; }
+  .poster .sheet, .poster .stage { display: contents; }
+  .home header.site { grid-area: head; }
   .home header.site .bits { width: 100%; font-size: 11px; letter-spacing: .04em; white-space: nowrap; }
   .home header.site nav.links { order: 2; width: auto; }
   .home header.site nav.lang { order: 3; margin-left: auto; }
-  .poster .mark { order: 2; margin: 18px 0 4px; }
-  .poster .stage { order: 3; }
-  .poster .mark-v, .poster .mark-en { display: none; }
-  .poster .mark-h { display: block; width: 100%; height: auto; }
-  .poster .moon { margin-top: 8px; }
-  #moon { flex: none; padding: 8px 0 14px; }
-  .poster .copy { margin-top: 28px; }
+  .poster .mark { grid-area: mark; display: flex; padding: 18px 16px 0 0; border-right: 1.2px solid var(--ink); }
+  .poster .mark-v { display: block; height: 300px; width: auto; }
+  .poster .mark-h, .poster .mark-en { display: none; }
+  .poster .moon { grid-area: moon; padding: 18px 0 0 16px; justify-content: space-between; }
+  #moon { --moon-max: 3.3px; flex: 1; padding: 0; }
+  .poster figcaption { flex-direction: column; gap: 2px; font-size: 12px; padding-top: 8px; }
+  .poster figcaption .cap-en { font-size: 11px; }
+  .poster .copy { grid-area: copy; margin-top: 28px; padding-top: 22px; border-top: 1.2px solid var(--ink); }
   .poster .copy h1, .poster .copy section[lang] h1 { font-size: clamp(28px, 8.2vw, 42px); }
   .poster-foot { padding: 16px 20px 36px; }
 }

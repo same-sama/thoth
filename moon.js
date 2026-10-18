@@ -44,7 +44,8 @@
       var w = box.clientWidth, h = box.clientHeight - (box.querySelector("figcaption") || { offsetHeight: 0 }).offsetHeight - 16;
       var fs = w / (COLS * 0.602);
       if (h > 120) fs = Math.min(fs, h / ROWS);
-      fs = Math.max(3, Math.min(fs, 13));
+      var cap = parseFloat(getComputedStyle(pre).getPropertyValue("--moon-max")) || 13;
+      fs = Math.max(2.4, Math.min(fs, cap));
       pre.style.fontSize = fs + "px";
       pre.style.lineHeight = fs + "px";
     }

@@ -36,48 +36,11 @@
     function armReveal() {
       if (!revealObserver) return;
       document.querySelectorAll("section[lang].on > *:not(.in), .facts:not(.in), .rows > a:not(.in)").forEach(function (el, i) {
-        if (el.closest(".hero")) return;
+        if (el.closest(".hero, .poster")) return;
         el.classList.add("reveal");
         el.style.transitionDelay = Math.min(i % 6, 5) * 40 + "ms";
         revealObserver.observe(el);
       });
-    }
-
-    // 3. 朱鹭:一笔笔画出来,偶尔眨一下眼。
-    var ibis = document.querySelector(".hero .ibis svg");
-    if (ibis && !reduce) {
-      // 和 App 开屏同一套笔画和先后:头和脖子 → 喙 → 眼睛 → 三道项圈 → 太阳和光芒。
-      ibis.querySelectorAll(".strokes path").forEach(function (p, i) {
-        var len = p.getTotalLength ? Math.ceil(p.getTotalLength()) + 2 : 600;
-        var start = parseFloat(p.getAttribute("data-start")) || i * 0.2;
-        var dur = parseFloat(p.getAttribute("data-dur")) || 0.6;
-        p.style.strokeDasharray = len;
-        p.style.strokeDashoffset = len;
-        p.style.animation = "draw " + Math.max(dur, 0.12) + "s cubic-bezier(.65,0,.35,1) " + (0.35 + start) + "s forwards";
-      });
-      ibis.classList.add("drawing");
-      var eye = ibis.querySelector(".eye");
-      if (eye) {
-        (function blink() {
-          setTimeout(function () {
-            eye.classList.add("blink");
-            setTimeout(function () { eye.classList.remove("blink"); blink(); }, 180);
-          }, 3200 + Math.random() * 4200);
-        })();
-      }
-      // 二进制那行字:先乱跳,再定下来。
-      var bits = ibis.querySelector(".bits");
-      if (bits) {
-        var target = bits.textContent, n = 0;
-        var timer = setInterval(function () {
-          n++;
-          bits.textContent = target.split("").map(function (c, i) {
-            if (c === " ") return c;
-            return i < n * 1.4 ? c : (Math.random() > 0.5 ? "1" : "0");
-          }).join("");
-          if (n * 1.4 > target.length) { clearInterval(timer); bits.textContent = target; }
-        }, 55);
-      }
     }
 
     // 4. 使用指南:侧边(电脑)/ 顶部横条(手机)导航,跟着滚动高亮当前一节。

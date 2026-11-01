@@ -1,6 +1,6 @@
-# Thoth 网站（GitHub Pages）
+# Tehuti 网站（GitHub Pages）
 
-隐私政策、支持页、自部署接入说明、Mods 投稿条款。App 里的链接（`Thoth/Core/AIDataConsent.swift` 的 `ThothLinks`）指向：
+隐私政策、支持页、自部署接入说明、Mods 投稿条款。App 里的链接（`Tehuti/Core/AIDataConsent.swift` 的 `ThothLinks`）指向：
 
 - https://same-sama.github.io/thoth/
 - https://same-sama.github.io/thoth/privacy.html
@@ -19,6 +19,6 @@
 ## 联系方式与生效日期
 
 - 支持邮箱：`Kennethskyhigh@163.com`，与 App 的 `ThothLinks.supportEmail` 保持一致。
-- 隐私政策生效日期：2026 年 10 月 17 日。
+- 隐私政策生效日期：2026 年 10 月 31 日。
 
 三种语言在同一页里，按浏览器语言自动显示一种，右上角可以切换；没有 JavaScript 时三种都显示。

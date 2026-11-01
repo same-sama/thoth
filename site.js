@@ -1,4 +1,4 @@
-// Thoth 网站的动效和指南导航(2026-10-18)。全部是锦上添花:没有 JS 或者系统开了「减弱动态效果」时,页面照样完整可用。
+// Tehuti 网站的动效和指南导航(2026-10-18)。全部是锦上添花:没有 JS 或者系统开了「减弱动态效果」时,页面照样完整可用。
 (function () {
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var root = document.documentElement;

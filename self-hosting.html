@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Thoth · 自部署服务接入 / Self-Hosted Services</title>
+<title>Tehuti · 自部署服务接入 / Self-Hosted Services</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Noto+Serif+SC:wght@400;600&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
@@ -14,7 +14,7 @@
 <div class="progress" aria-hidden="true"><span></span></div>
 <main>
 <header class="site">
-  <a class="home" href="./">THOTH</a>
+  <a class="home" href="./">TEHUTI</a>
   <nav class="links" aria-label="站点">
     <a href="guide.html" data-zh="使用指南" data-ja="使い方" data-en="Guide">使用指南</a>
     <a href="support.html" data-zh="支持" data-ja="サポート" data-en="Support">支持</a>
@@ -25,11 +25,11 @@
 
 <section lang="zh-Hans">
 <h1>接入自己部署的服务</h1>
-<p>Thoth 认 <strong>OpenAI 的接口格式</strong>。你自己部署的语音、识图、生图服务，只要兼容下面对应的接口，就能接进来。每个入口都有「测试一下」，接不通时会告诉你卡在地址、Key 还是接口格式。</p>
+<p>Tehuti 认 <strong>OpenAI 的接口格式</strong>。你自己部署的语音、识图、生图服务，只要兼容下面对应的接口，就能接进来。每个入口都有「测试一下」，接不通时会告诉你卡在地址、Key 还是接口格式。</p>
 
 <h2>地址</h2>
 <ul>
-  <li>局域网里的服务可以用 <code>http://</code>，比如 <code>http://192.168.1.10:8000/v1</code>。第一次连时 iOS 会问是否允许 Thoth 访问本地网络，选允许。</li>
+  <li>局域网里的服务可以用 <code>http://</code>，比如 <code>http://192.168.1.10:8000/v1</code>。第一次连时 iOS 会问是否允许 Tehuti 访问本地网络，选允许。</li>
   <li>放在公网上的服务必须用 <code>https://</code>，证书要是正规签发的（自签名不行）。没有 https 的话，可以用 Caddy 或 Cloudflare Tunnel 免费加一层。</li>
 </ul>
 
@@ -63,7 +63,7 @@
 <h2>常见报错</h2>
 <div class="table-wrap"><table>
   <tr><th>测试结果</th><th>怎么办</th></tr>
-  <tr><td>卡在地址：连不上</td><td>确认服务在跑、端口对；手机和电脑在同一个 Wi-Fi；电脑防火墙放行端口；iOS 设置里允许 Thoth 访问本地网络</td></tr>
+  <tr><td>卡在地址：连不上</td><td>确认服务在跑、端口对；手机和电脑在同一个 Wi-Fi；电脑防火墙放行端口；iOS 设置里允许 Tehuti 访问本地网络</td></tr>
   <tr><td>卡在地址：http 只能连局域网</td><td>公网服务换成 https</td></tr>
   <tr><td>卡在地址：证书不被信任</td><td>换正规证书，或在局域网里用 http</td></tr>
   <tr><td>卡在 Key（401/403）</td><td>核对 Key；Bearer 和 X-API-Key 换一个试</td></tr>
@@ -76,7 +76,7 @@
 
 <section lang="ja">
 <h1>自分で立てたサービスをつなぐ</h1>
-<p>Thoth は <strong>OpenAI の API 形式</strong>に対応しています。自分で立てた音声・画像認識・画像生成サービスも、下の API と互換なら接続できます。各画面の「テストする」で、つながらないときにアドレス・キー・API 形式のどこで止まっているかが分かります。</p>
+<p>Tehuti は <strong>OpenAI の API 形式</strong>に対応しています。自分で立てた音声・画像認識・画像生成サービスも、下の API と互換なら接続できます。各画面の「テストする」で、つながらないときにアドレス・キー・API 形式のどこで止まっているかが分かります。</p>
 
 <h2>アドレス</h2>
 <ul>
@@ -127,11 +127,11 @@
 
 <section lang="en">
 <h1>Connecting a Self-Hosted Service</h1>
-<p>Thoth speaks the <strong>OpenAI API format</strong>. A voice, image-recognition or image-generation service you host yourself works if it's compatible with the endpoints below. Each settings page has a <em>Test It</em> button that tells you whether a failure is at the address, the key or the API format.</p>
+<p>Tehuti speaks the <strong>OpenAI API format</strong>. A voice, image-recognition or image-generation service you host yourself works if it's compatible with the endpoints below. Each settings page has a <em>Test It</em> button that tells you whether a failure is at the address, the key or the API format.</p>
 
 <h2>Addresses</h2>
 <ul>
-  <li>Services on your local network can use <code>http://</code>, e.g. <code>http://192.168.1.10:8000/v1</code>. The first time, iOS asks whether Thoth may access your local network; allow it.</li>
+  <li>Services on your local network can use <code>http://</code>, e.g. <code>http://192.168.1.10:8000/v1</code>. The first time, iOS asks whether Tehuti may access your local network; allow it.</li>
   <li>Services on the internet need <code>https://</code> with a properly issued certificate (self-signed won't work). Caddy or Cloudflare Tunnel can add https for free.</li>
 </ul>
 
@@ -165,7 +165,7 @@
 <h2>Common errors</h2>
 <div class="table-wrap"><table>
   <tr><th>Test result</th><th>What to do</th></tr>
-  <tr><td>Address: can't connect</td><td>Check the service is running and the port is right; same Wi-Fi as the phone; allow the port in the computer's firewall; allow Local Network for Thoth in iOS Settings</td></tr>
+  <tr><td>Address: can't connect</td><td>Check the service is running and the port is right; same Wi-Fi as the phone; allow the port in the computer's firewall; allow Local Network for Tehuti in iOS Settings</td></tr>
   <tr><td>Address: http only works locally</td><td>Use https for services on the internet</td></tr>
   <tr><td>Address: certificate not trusted</td><td>Use a proper certificate, or plain http on a LAN</td></tr>
   <tr><td>Key (401/403)</td><td>Check the key; try switching between Bearer and X-API-Key</td></tr>
@@ -177,7 +177,7 @@
 </section>
 
 <footer>
-  <span>Thoth</span>
+  <span>Tehuti</span>
   <a href="guide.html" data-zh="使用指南" data-ja="使い方" data-en="Guide">使用指南</a>
   <a href="privacy.html" data-zh="隐私政策" data-ja="プライバシー" data-en="Privacy">隐私政策</a>
   <a href="support.html" data-zh="支持" data-ja="サポート" data-en="Support">支持</a>

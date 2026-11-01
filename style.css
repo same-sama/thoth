@@ -181,6 +181,7 @@ html.js main.guide .toc { display: none; }
 @media (prefers-color-scheme: dark) { :root { --moon: #93a0ff; } }
 .poster { position: relative; max-width: 1400px; margin: 0 auto; color: var(--ink); }
 .poster .mark svg text { font: 700 172px "Cormorant Garamond", Georgia, serif; fill: var(--ink); }
+.poster .mark-v text { font-size: 140px; }
 .poster .mark-en { font: 11px/1 "Space Mono", ui-monospace, monospace; letter-spacing: .22em; white-space: nowrap; }
 .home header.site { position: static; margin: 0; padding: 4px 0 14px; border-bottom: 1.2px solid var(--ink); box-shadow: none; background: none; }
 .home header.site .bits { font: 12px/1 "Space Mono", ui-monospace, monospace; letter-spacing: .08em; }
